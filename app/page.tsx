@@ -8,7 +8,7 @@ export default function Home() {
               <img
                 src="/ysv-logo-blue.png?v=5"
                 alt="YSV Financial"
-                className="h-12 md:h-14 w-auto object-contain transition duration-300 hover:scale-105"
+                className="h-8 md:h-10 w-auto object-contain transition duration-300 hover:scale-105"
               />
             </div>
 
@@ -63,9 +63,9 @@ export default function Home() {
 
   <div className="relative mx-auto max-w-6xl text-center text-white">
     <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-      More Homeowners Say "Yes"
+      Close More Jobs
       <span className="block bg-gradient-to-r from-[#27d3ff] to-[#5f7cff] bg-clip-text text-transparent">
-        Financing Options That Work
+        Offer Monthly Payments
       </span>
     </h1>
 
@@ -91,8 +91,7 @@ export default function Home() {
         Learn More
       </a>
     </div>
-
-   <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div className="mt-12 grid grid-cols-2 gap-4 md:mx-auto md:max-w-6xl md:grid-cols-4">
   {[
     {
       title: "Under 60s",
@@ -115,25 +114,27 @@ export default function Home() {
       desc: "Track customers from application to approval to funding.",
     },
   ].map((item, i) => (
-    <div
+    <button
       key={i}
-      className="group rounded-2xl border border-white/10 bg-white/5 px-5 py-5 text-left backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#27d3ff]/40 hover:bg-white/10"
+      type="button"
+      className="group relative overflow-hidden rounded-[26px] border border-white/10 bg-white/5 px-5 py-6 text-left backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#27d3ff]/45 hover:bg-white/10 active:scale-[0.98] active:border-[#27d3ff]/70 focus:outline-none focus:ring-2 focus:ring-[#27d3ff]/50"
     >
-      {/* TOP BLUE TITLE — ALWAYS ONE LINE */}
-      <p className="text-lg font-semibold text-[#27d3ff] whitespace-nowrap">
-        {item.title}
-      </p>
+      <span className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 group-active:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(39,211,255,0.18),transparent_45%),radial-gradient(circle_at_bottom,rgba(49,91,255,0.16),transparent_50%)]" />
 
-      {/* SUBTITLE */}
-      <p className="mt-1 text-sm font-medium text-white">
-        {item.subtitle}
-      </p>
+      <div className="relative z-10">
+        <p className="text-xl font-semibold text-[#27d3ff] whitespace-nowrap">
+          {item.title}
+        </p>
 
-      {/* DESCRIPTION */}
-      <p className="mt-2 text-sm leading-6 text-white/70">
-        {item.desc}
-      </p>
-    </div>
+        <p className="mt-2 text-base font-medium text-white">
+          {item.subtitle}
+        </p>
+
+        <p className="mt-3 text-sm leading-6 text-white/70">
+          {item.desc}
+        </p>
+      </div>
+    </button>
   ))}
 </div>
   </div>
