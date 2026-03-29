@@ -67,3 +67,48 @@ body {
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
+
+@keyframes driveSteps {
+  0% {
+    top: 0%;
+    transform: translateX(0) rotate(90deg) scaleX(1);
+  }
+  40% {
+    top: 82%;
+    transform: translateX(0) rotate(90deg) scaleX(1);
+  }
+  50% {
+    top: 82%;
+    transform: translateX(0) rotate(90deg) scaleX(-1);
+  }
+  90% {
+    top: 0%;
+    transform: translateX(0) rotate(90deg) scaleX(-1);
+  }
+  100% {
+    top: 0%;
+    transform: translateX(0) rotate(90deg) scaleX(1);
+  }
+}
+
+@keyframes industryPulse {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.02); }
+  40% { transform: scale(1); }
+  60% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.reveal-block {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-block.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
