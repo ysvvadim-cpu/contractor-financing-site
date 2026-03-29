@@ -57,144 +57,234 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
-          <div className="flex items-center px-6 py-10 md:px-10 md:py-14">
-            <div className="max-w-xl">
-              <h1 className="text-3xl font-black uppercase leading-[1.02] tracking-tight text-black md:text-5xl">
-                Offer Monthly Payments They Can Actually Afford 
-              </h1>
+      <section className="relative overflow-hidden bg-[#050b1a] px-6 py-20 md:px-10 md:py-24">
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(49,91,255,0.22),transparent_30%),radial-gradient(circle_at_bottom,rgba(0,190,255,0.16),transparent_28%)]" />
+  <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent)]" />
 
-              <p className="mt-5 max-w-lg text-lg leading-8 text-[#737883]">
-                Offer your customers affordable monthly payment options for
-                every project, without making your sales process harder.
-              </p>
+  <div className="relative mx-auto max-w-6xl text-center text-white">
+    <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+      More Homeowners Say "Yes"
+      <span className="block bg-gradient-to-r from-[#27d3ff] to-[#5f7cff] bg-clip-text text-transparent">
+        Financing Options That Work
+      </span>
+    </h1>
 
-              <div className="mt-7">
-                <a
-                  href="#"
-                  className="demo-button inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-[0_14px_30px_rgba(49,91,255,0.28)] transition hover:scale-[1.03] hover:shadow-[0_18px_40px_rgba(49,91,255,0.35)]"
-                >
-                  Request a Demo
-                  <span className="text-lg">➜</span>
-                </a>
-              </div>
+    <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-white/80 md:text-xl">
+      Give your team a faster, cleaner way to offer monthly payment options.
+      From application to approval to funding, make financing simple for both
+      contractors and homeowners.
+    </p>
+
+    <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a
+        href="#"
+        className="demo-button inline-flex min-w-[260px] items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#14bff5] to-[#315bff] px-8 py-4 text-lg font-semibold text-white shadow-[0_16px_40px_rgba(49,91,255,0.35)] transition hover:scale-[1.03]"
+      >
+        Request A Demo
+        <span className="text-xl">→</span>
+      </a>
+
+      <a
+        href="#"
+        className="inline-flex min-w-[260px] items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-8 py-4 text-lg font-semibold text-white transition hover:bg-white/10"
+      >
+        Learn More
+      </a>
+    </div>
+
+    <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
+        <p className="text-4xl font-bold text-[#27d3ff]">Under 60s</p>
+        <p className="mt-3 text-xl font-semibold text-white">Fast Approvals</p>
+        <p className="mt-2 text-base leading-7 text-white/65">
+          Help customers view payment options quickly during the sale.
+        </p>
+      </div>
+
+      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
+        <p className="text-4xl font-bold text-[#27d3ff]">QR + SMS</p>
+        <p className="mt-3 text-xl font-semibold text-white">Simple Handoff</p>
+        <p className="mt-2 text-base leading-7 text-white/65">
+          Send a financing link by text or let homeowners scan on the spot.
+        </p>
+      </div>
+
+      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
+        <p className="text-4xl font-bold text-[#27d3ff]">$1K–$250K</p>
+        <p className="mt-3 text-xl font-semibold text-white">Flexible Ranges</p>
+        <p className="mt-2 text-base leading-7 text-white/65">
+          Offer financing options for a wide range of home service projects.
+        </p>
+      </div>
+
+      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
+        <p className="text-4xl font-bold text-[#27d3ff]">Live Tracking</p>
+        <p className="mt-3 text-xl font-semibold text-white">Full Visibility</p>
+        <p className="mt-2 text-base leading-7 text-white/65">
+          Track customers from application to approval to funding.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section id="why" className="scroll-mt-24 bg-white px-6 py-24 md:px-10">
+  <div className="mx-auto max-w-6xl">
+    <div className="text-center">
+      <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
+        Why Contractors Love YSV Financial
+      </h2>
+    </div>
+
+    <div className="mt-16 grid gap-6 md:grid-cols-2">
+      <div className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
+        <div className="flex gap-5">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#315bff] text-2xl text-white shadow-sm">
+            $
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Lower Dealer Costs
+            </h3>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Avoid costly per-project dealer fees and keep financing as a tool
+              that helps your sales process instead of cutting into margins.
+            </p>
+            <div className="mt-5 flex items-center justify-between gap-4 text-sm">
+              <span className="font-medium text-[#315bff]">
+                Better margin protection
+              </span>
+              <span className="text-slate-400 transition group-hover:text-[#315bff]">
+                Learn More →
+              </span>
             </div>
           </div>
-
-          <div className="relative min-h-[320px] lg:min-h-[500px]">
-            <img
-              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=80"
-              alt="Contractor at a job site"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(to_left,rgba(255,255,255,0.03),rgba(255,255,255,0.08))]" />
-          </div>
         </div>
+      </div>
 
-        <div className="bg-gradient-to-r from-[#2448d8] via-[#315bff] to-[#4e71ff] text-white">
-          <div className="mx-auto grid max-w-7xl gap-3 px-6 py-4 text-center md:grid-cols-3 md:px-10">
-            <div className="stat-card rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/15">
-              <p className="text-3xl font-black">25,000+</p>
-              <p className="mt-1 text-base text-white/90">
-                Contractors using financing
-              </p>
-            </div>
-
-            <div className="stat-card rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/15">
-              <p className="text-3xl font-black">12X</p>
-              <p className="mt-1 text-base text-white/90">
-                Average annual ROI
-              </p>
-            </div>
-
-            <div className="stat-card rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/15">
-              <p className="text-3xl font-black">$700M</p>
-              <p className="mt-1 text-base text-white/90">
-                Processed financing volume
-              </p>
+      <div className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
+        <div className="flex gap-5">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#17b26a] text-2xl text-white shadow-sm">
+            ⌘
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Easy To Offer
+            </h3>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Send a text link, show a QR code, or follow up later without
+              turning financing into a clunky extra step during the sale.
+            </p>
+            <div className="mt-5 flex items-center justify-between gap-4 text-sm">
+              <span className="font-medium text-[#315bff]">
+                QR + SMS + follow-up
+              </span>
+              <span className="text-slate-400 transition group-hover:text-[#315bff]">
+                Learn More →
+              </span>
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="bg-white px-6 py-24 md:px-10">
-  <div className="mx-auto max-w-6xl text-center">
-    <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
-      Why Contractors Love YSV Financial 
-    </h2>
-
-    <div className="mt-16 grid gap-8 md:grid-cols-3">
-      <div className="group rounded-[28px] border border-slate-200 bg-white p-10 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#315bff]/30 hover:shadow-[0_24px_60px_rgba(49,91,255,0.16)]">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#315bff]/10 text-3xl shadow-sm transition duration-300 group-hover:bg-[#315bff] group-hover:text-white">
-          💰
-        </div>
-        <h3 className="mt-7 text-xl font-semibold text-slate-900">
-          Lower Cost Structure
-        </h3>
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          No costly per-project dealer fees.
-        </p>
       </div>
 
-      <div className="group rounded-[28px] border border-slate-200 bg-white p-10 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#315bff]/30 hover:shadow-[0_24px_60px_rgba(49,91,255,0.16)]">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#315bff]/10 text-3xl shadow-sm transition duration-300 group-hover:bg-[#315bff] group-hover:text-white">
-          👥
+      <div className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
+        <div className="flex gap-5">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#8b5cf6] text-2xl text-white shadow-sm">
+            ↗
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Higher Approval Opportunity
+            </h3>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Give more homeowners a chance to move forward by presenting
+              financing options in a simple, guided experience.
+            </p>
+            <div className="mt-5 flex items-center justify-between gap-4 text-sm">
+              <span className="font-medium text-[#315bff]">
+                More customers can qualify
+              </span>
+              <span className="text-slate-400 transition group-hover:text-[#315bff]">
+                Learn More →
+              </span>
+            </div>
+          </div>
         </div>
-        <h3 className="mt-7 text-xl font-semibold text-slate-900">
-          Easy To Qualify
-        </h3>
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          No minimum years in business required.
-        </p>
       </div>
 
-      <div className="group rounded-[28px] border border-slate-200 bg-white p-10 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#315bff]/30 hover:shadow-[0_24px_60px_rgba(49,91,255,0.16)]">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#315bff]/10 text-3xl shadow-sm transition duration-300 group-hover:bg-[#315bff] group-hover:text-white">
-          📊
+      <div className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
+        <div className="flex gap-5">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#f97316] text-2xl text-white shadow-sm">
+            ⚡
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Fast Decisions
+            </h3>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Help homeowners see payment options quickly, often in under 60
+              seconds, so momentum stays strong in the sales conversation.
+            </p>
+            <div className="mt-5 flex items-center justify-between gap-4 text-sm">
+              <span className="font-medium text-[#315bff]">
+                Under 60 second experience
+              </span>
+              <span className="text-slate-400 transition group-hover:text-[#315bff]">
+                Learn More →
+              </span>
+            </div>
+          </div>
         </div>
-        <h3 className="mt-7 text-xl font-semibold text-slate-900">
-          Flexible Credit Options
-        </h3>
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          FICO scores as low as 550 with competitive rates.
-        </p>
       </div>
 
-      <div className="group rounded-[28px] border border-slate-200 bg-white p-10 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#315bff]/30 hover:shadow-[0_24px_60px_rgba(49,91,255,0.16)]">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#315bff]/10 text-3xl shadow-sm transition duration-300 group-hover:bg-[#315bff] group-hover:text-white">
-          🏠
+      <div className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
+        <div className="flex gap-5">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#ef4444] text-2xl text-white shadow-sm">
+            ▣
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Wide Financing Range
+            </h3>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Support projects across a broad range of ticket sizes, from
+              smaller repairs to major home improvement jobs.
+            </p>
+            <div className="mt-5 flex items-center justify-between gap-4 text-sm">
+              <span className="font-medium text-[#315bff]">
+                Flexible project sizing
+              </span>
+              <span className="text-slate-400 transition group-hover:text-[#315bff]">
+                Learn More →
+              </span>
+            </div>
+          </div>
         </div>
-        <h3 className="mt-7 text-xl font-semibold text-slate-900">
-          Built For Home Services
-        </h3>
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          Built for home improvement and service businesses.
-        </p>
       </div>
 
-      <div className="group rounded-[28px] border border-slate-200 bg-white p-10 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#315bff]/30 hover:shadow-[0_24px_60px_rgba(49,91,255,0.16)]">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#315bff]/10 text-3xl shadow-sm transition duration-300 group-hover:bg-[#315bff] group-hover:text-white">
-          ⚡
+      <div className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
+        <div className="flex gap-5">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#ec4899] text-2xl text-white shadow-sm">
+            ≋
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Live Status Tracking
+            </h3>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Track customers from application to approval to funding so your
+              team always knows where each deal stands.
+            </p>
+            <div className="mt-5 flex items-center justify-between gap-4 text-sm">
+              <span className="font-medium text-[#315bff]">
+                Better team visibility
+              </span>
+              <span className="text-slate-400 transition group-hover:text-[#315bff]">
+                Learn More →
+              </span>
+            </div>
+          </div>
         </div>
-        <h3 className="mt-7 text-xl font-semibold text-slate-900">
-          Fast Approval Range
-        </h3>
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          Loans from $1K to $250K with fast approvals.
-        </p>
-      </div>
-
-      <div className="group rounded-[28px] border border-slate-200 bg-white p-10 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-2 hover:border-[#315bff]/30 hover:shadow-[0_24px_60px_rgba(49,91,255,0.16)]">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#315bff]/10 text-3xl shadow-sm transition duration-300 group-hover:bg-[#315bff] group-hover:text-white">
-          📈
-        </div>
-        <h3 className="mt-7 text-xl font-semibold text-slate-900">
-          Full Visibility
-        </h3>
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          Track your customers from application to funding.
-        </p>
       </div>
     </div>
   </div>
