@@ -92,39 +92,50 @@ export default function Home() {
       </a>
     </div>
 
-    <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
-        <p className="text-4xl font-bold text-[#27d3ff]">Under 60s</p>
-        <p className="mt-3 text-xl font-semibold text-white">Fast Approvals</p>
-        <p className="mt-2 text-base leading-7 text-white/65">
-          Help customers view payment options quickly during the sale.
-        </p>
-      </div>
+   <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+  {[
+    {
+      title: "Under 60s",
+      subtitle: "Fast Approvals",
+      desc: "Help customers view payment options quickly during the sale.",
+    },
+    {
+      title: "QR + SMS",
+      subtitle: "Simple Handoff",
+      desc: "Send a financing link by text or let homeowners scan on the spot.",
+    },
+    {
+      title: "$1K–$250K",
+      subtitle: "Flexible Ranges",
+      desc: "Offer financing options for a wide range of home service projects.",
+    },
+    {
+      title: "Live Tracking",
+      subtitle: "Full Visibility",
+      desc: "Track customers from application to approval to funding.",
+    },
+  ].map((item, i) => (
+    <div
+      key={i}
+      className="group rounded-2xl border border-white/10 bg-white/5 px-5 py-5 text-left backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#27d3ff]/40 hover:bg-white/10"
+    >
+      {/* TOP BLUE TITLE — ALWAYS ONE LINE */}
+      <p className="text-lg font-semibold text-[#27d3ff] whitespace-nowrap">
+        {item.title}
+      </p>
 
-      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
-        <p className="text-4xl font-bold text-[#27d3ff]">QR + SMS</p>
-        <p className="mt-3 text-xl font-semibold text-white">Simple Handoff</p>
-        <p className="mt-2 text-base leading-7 text-white/65">
-          Send a financing link by text or let homeowners scan on the spot.
-        </p>
-      </div>
+      {/* SUBTITLE */}
+      <p className="mt-1 text-sm font-medium text-white">
+        {item.subtitle}
+      </p>
 
-      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
-        <p className="text-4xl font-bold text-[#27d3ff]">$1K–$250K</p>
-        <p className="mt-3 text-xl font-semibold text-white">Flexible Ranges</p>
-        <p className="mt-2 text-base leading-7 text-white/65">
-          Offer financing options for a wide range of home service projects.
-        </p>
-      </div>
-
-      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-left shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition hover:-translate-y-1 hover:border-[#27d3ff]/30 hover:bg-white/10">
-        <p className="text-4xl font-bold text-[#27d3ff]">Live Tracking</p>
-        <p className="mt-3 text-xl font-semibold text-white">Full Visibility</p>
-        <p className="mt-2 text-base leading-7 text-white/65">
-          Track customers from application to approval to funding.
-        </p>
-      </div>
+      {/* DESCRIPTION */}
+      <p className="mt-2 text-sm leading-6 text-white/70">
+        {item.desc}
+      </p>
     </div>
+  ))}
+</div>
   </div>
 </section>
 
