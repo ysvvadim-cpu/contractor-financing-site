@@ -348,7 +348,6 @@ export default function Home() {
   </div>
 </section>
 
-
       <section id="why" className="scroll-mt-24 bg-white px-6 py-24 md:px-10">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
@@ -428,21 +427,24 @@ export default function Home() {
               },
             ].map((card, i) => (
               <Reveal key={card.title} delay={i * 70}>
-                <div className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
-                  <div className="flex gap-5">
+                <div
+  key={card.title}
+  className="group flex h-full rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]"
+>
+                  <div className="flex w-full gap-5">
                     <div
                       className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${card.iconBg} text-2xl text-white shadow-sm`}
                     >
                       {card.icon}
                     </div>
-                    <div className="min-w-0 flex-1">
+                    <div className="flex min-h-[180px] min-w-0 flex-1 flex-col">
                       <h3 className="text-2xl font-semibold text-slate-900">
                         {card.title}
                       </h3>
                       <p className="mt-3 text-base leading-7 text-slate-600">
                         {card.text}
                       </p>
-                      <div className="mt-5 flex items-center justify-between gap-4 text-sm">
+                      <div className="mt-auto flex items-center justify-between gap-4 pt-5 text-sm">
                         <span className="font-medium text-[#315bff]">
                           {card.label}
                         </span>
