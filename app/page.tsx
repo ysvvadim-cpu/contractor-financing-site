@@ -139,31 +139,31 @@ export default function Home() {
               <nav className="hidden items-center gap-7 lg:flex">
                 <a
                   href="#why"
-                  className="text-sm font-normal text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
+                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
                 >
                   Why YSV
                 </a>
                 <a
                   href="#how"
-                  className="text-sm font-normal text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
+                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
                 >
                   How It Works
                 </a>
                 <a
                   href="#industries"
-                  className="text-sm font-normal text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
+                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
                 >
                   Industries
                 </a>
                 <a
                   href="#testimonials"
-                  className="text-sm font-normal text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
+                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
                 >
                   Testimonials
                 </a>
                 <a
                   href="#contact"
-                  className="text-sm font-normal text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
+                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
                 >
                   Contact
                 </a>
@@ -188,941 +188,571 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-[#050b1a] px-6 py-20 md:px-10 md:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(49,91,255,0.22),transparent_30%),radial-gradient(circle_at_bottom,rgba(0,190,255,0.16),transparent_28%)]" />
-        <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent)]" />
+<section className="relative overflow-hidden">
 
-        <div className="relative mx-auto max-w-6xl text-center text-white">
-          <Reveal>
-            <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-              Close More Jobs
-              <span className="block bg-gradient-to-r from-[#27d3ff] to-[#5f7cff] bg-clip-text text-transparent">
-                Offer Monthly Payments
-              </span>
-            </h1>
-          </Reveal>
+  {/* BACKGROUND IMAGE */}
+  <img
+    src="/demo-hero.png"
+    className="absolute inset-0 h-full w-full object-cover scale-105 blur-[1px]"
+  />
 
-          <Reveal delay={100}>
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-white/80 md:text-xl">
-              Give your team a faster, cleaner way to offer monthly payment
-              options. From application to approval to funding, make financing
-              simple for both contractors and homeowners.
-            </p>
-          </Reveal>
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
 
-          <Reveal delay={180}>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="#contact"
-                className="demo-button inline-flex min-w-[260px] items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#14bff5] to-[#315bff] px-8 py-4 text-lg font-semibold text-white shadow-[0_16px_40px_rgba(49,91,255,0.35)] transition hover:scale-[1.03]"
-              >
-                Request A Demo
-                <span className="text-xl">→</span>
-              </a>
+  {/* CONTENT */}
+  <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 md:py-32 text-white">
 
-              <a
-                href="#how"
-                className="inline-flex min-w-[260px] items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-8 py-4 text-lg font-semibold text-white transition hover:bg-white/10"
-              >
-                Learn More
-              </a>
-            </div>
-          </Reveal>
+    {/* SMALL TOP TEXT */}
+    <p className="mb-3 text-sm uppercase tracking-widest text-white/70">
+      BUILT FOR CONTRACTORS & HOME SERVICES
+    </p>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 md:mx-auto md:max-w-6xl md:grid-cols-4">
-            {[
-              {
-                title: "Under 60s",
-                subtitle: "Fast Approvals",
-                desc: "Help customers view payment options quickly during the sale.",
-              },
-              {
-                title: "QR + SMS",
-                subtitle: "Simple Handoff",
-                desc: "Send a financing link by text or let homeowners scan on the spot.",
-              },
-              {
-                title: "$1K–$250K",
-                subtitle: "Flexible Ranges",
-                desc: "Offer financing options for a wide range of home service projects.",
-              },
-              {
-                title: "Live Tracking",
-                subtitle: "Full Visibility",
-                desc: "Track customers from application to approval to funding.",
-              },
-            ].map((item, i) => (
-              <Reveal key={i} delay={240 + i * 80}>
-                <button
-                  type="button"
-                  className="group relative w-full overflow-hidden rounded-[26px] border border-white/10 bg-white/5 px-5 py-6 text-left backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#27d3ff]/45 hover:bg-white/10 active:scale-[0.98] active:border-[#27d3ff]/70 focus:outline-none focus:ring-2 focus:ring-[#27d3ff]/50"
-                >
-                  <span className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 group-active:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(39,211,255,0.18),transparent_45%),radial-gradient(circle_at_bottom,rgba(49,91,255,0.16),transparent_50%)]" />
+    {/* HEADLINE */}
+    <h1 className="max-w-2xl text-5xl font-semibold leading-tight md:text-6xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
+      The Fastest, No-Fee
+      <br />
+      Home Improvement Financing Platform
+    </h1>
 
-                  <div className="relative z-10">
-                    <p className="whitespace-nowrap text-xl font-semibold text-[#27d3ff]">
-                      {item.title}
-                    </p>
+    {/* SUBTEXT */}
+    <p className="mt-6 max-w-2xl text-lg text-white/80">
+      Close more sales with instant approvals and zero dealer fees.
+    </p>
 
-                    <p className="mt-2 text-base font-medium text-white">
-                      {item.subtitle}
-                    </p>
+    {/* BUTTON */}
+    <div className="mt-8">
+      <a
+        href="#contact"
+        className="inline-flex items-center rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:scale-[1.03]"
+      >
+        Get Started →
+      </a>
+    </div>
+  </div>
 
-                    <p className="mt-3 text-sm leading-6 text-white/70">
-                      {item.desc}
-                    </p>
-                  </div>
-                </button>
-              </Reveal>
-            ))}
+  {/* INDUSTRIES MARQUEE */}
+<div className="relative z-20 overflow-hidden bg-[#DAA06D] py-5">
+  <div className="marquee-track flex w-max items-center">
+    {[
+      "Roofing",
+      "HVAC",
+      "Plumbing",
+      "Electrical",
+      "Windows & Doors",
+      "Kitchen & Bath",
+      "Flooring",
+      "Painting",
+      "Pools & Spas",
+      "Solar",
+      "Home Services",
+      "General Contractors",
+      "Roofing",
+      "HVAC",
+      "Plumbing",
+      "Electrical",
+      "Windows & Doors",
+      "Kitchen & Bath",
+      "Flooring",
+      "Painting",
+      "Pools & Spas",
+      "Solar",
+      "Home Services",
+      "General Contractors",
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="mx-5 flex items-center gap-5 whitespace-nowrap text-sm font-semibold uppercase tracking-[0.16em] text-white/90"
+      >
+        <span>{item}</span>
+        <span className="text-white/30">•</span>
+      </div>
+    ))}
+  </div>
+</div>
+</section>
+
+<section className="bg-white px-6 py-20 md:px-10">
+  <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-4xl text-center">
+      <p className="text-[17px] leading-8 text-slate-500 md:text-[18px]">
+        More approvals. More closed jobs. No dealer fees. YSV gives contractors
+        a faster, simpler way to offer financing—helping homeowners move
+        forward while you grow your business.
+      </p>
+    </div>
+
+    <div className="mt-14 grid gap-10 md:grid-cols-4 md:gap-8">
+      {[
+        {
+          title: "Fast Credit Decisions",
+          desc: "Help customers view financing options quickly so more estimates turn into signed contracts.",
+          icon: (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="h-9 w-9"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
+              <path d="M11 8.5v5" />
+              <path d="M8.8 10.8c0-1.2 1-2.1 2.2-2.1 1.1 0 2 .7 2.1 1.7" />
+              <path d="M9.2 13.8c.3.8 1 1.3 1.8 1.3 1.1 0 2-.8 2.1-1.8" />
+            </svg>
+          ),
+        },
+        {
+          title: "No Dealer Fees",
+          desc: "Keep more of every contract without sacrificing a clean financing experience for the homeowner.",
+          icon: (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="h-9 w-9"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 3v18" />
+              <path d="M16 7.5c0-1.7-1.8-3-4-3s-4 1.3-4 3 1.5 2.4 4 3 4 1.3 4 3-1.8 3-4 3-4-1.3-4-3" />
+              <path d="M18.5 5.5l2 2 2-2" />
+              <path d="M20.5 7.5v-4" />
+            </svg>
+          ),
+        },
+        {
+          title: "Flexible Terms",
+          desc: "Offer financing structures that make larger projects feel manageable for more homeowners.",
+          icon: (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="h-9 w-9"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="5" y="3.5" width="14" height="17" rx="2.5" />
+              <circle cx="12" cy="12" r="2.4" />
+              <path d="M12 9.2v5.6" />
+              <path d="M9.8 10.6c0-.9 1-1.6 2.2-1.6s2.2.7 2.2 1.6" />
+              <path d="M10 13.5c.2.8 1 1.3 2 1.3 1.1 0 1.9-.6 2.1-1.4" />
+            </svg>
+          ),
+        },
+        {
+          title: "Simple Process",
+          desc: "Use QR, text, or direct link handoff so financing feels easy to introduce during the sale.",
+          icon: (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="h-9 w-9"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="7" y="2.5" width="10" height="19" rx="2.4" />
+              <path d="M10 6.5h4" />
+              <path d="M12 18.5h.01" />
+              <path d="M4 8.5h2.5" />
+              <path d="M4 12h2.5" />
+              <path d="M4 15.5h2.5" />
+            </svg>
+          ),
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="relative text-center md:px-5"
+        >
+          {i !== 3 && (
+            <div className="absolute right-0 top-3 hidden h-[140px] w-px bg-slate-200 md:block" />
+          )}
+
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#d8e3ff] bg-[#f8fbff] text-[#315bff]">
+            {item.icon}
           </div>
+
+          <h3 className="mt-5 text-[24px] font-medium tracking-[-0.03em] text-slate-900">
+            {item.title}
+          </h3>
+
+          <p className="mx-auto mt-4 max-w-[240px] text-[15px] leading-7 text-slate-500">
+            {item.desc}
+          </p>
         </div>
-      </section>
-
-      <section className="border-y border-slate-200 bg-white px-6 py-5 md:px-10">
-  <div className="mx-auto grid max-w-7xl grid-cols-4 items-center gap-6">
-    <div className="flex items-center justify-center gap-3 text-[15px] font-medium text-slate-500">
-      <svg
-        className="h-5 w-5 text-[#8fb8d0]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z" />
-      </svg>
-      <span>30%+ Higher Close Rate</span>
-    </div>
-
-    <div className="flex items-center justify-center gap-3 text-[15px] font-medium text-slate-500">
-      <svg
-        className="h-5 w-5 text-[#8fb8d0]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="8" r="3.25" />
-        <path d="M8 21h8" />
-        <path d="M12 11.5V18" />
-      </svg>
-      <span>20%+ More Estimates</span>
-    </div>
-
-    <div className="flex items-center justify-center gap-3 text-[15px] font-medium text-slate-500">
-      <svg
-        className="h-5 w-5 text-[#8fb8d0]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
-        <circle cx="9.5" cy="7" r="3" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 4.13a3 3 0 0 1 0 5.74" />
-      </svg>
-      <span>1000+ Active Users</span>
-    </div>
-
-    <div className="flex items-center justify-center gap-3 text-[15px] font-medium text-slate-500">
-      <svg
-        className="h-5 w-5 text-[#8fb8d0]"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 3l2.8 5.68L21 9.6l-4.5 4.39 1.06 6.21L12 17.27 6.44 20.2 7.5 14 3 9.6l6.2-.92L12 3z" />
-      </svg>
-      <span>More Satisfied Homeowners</span>
+      ))}
     </div>
   </div>
 </section>
 
-      <section id="why" className="scroll-mt-24 bg-white px-6 py-24 md:px-10">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <div className="mx-auto max-w-7xl text-center">
-              <Reveal>
-                <div className="inline-flex items-center justify-center rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-blue-500 shadow-sm">
-                  Why YSV Financial
-                </div>
-              </Reveal>
+{/* WHY US */}
+<section id="why" className="bg-[#fcfcfd] px-6 py-24 md:px-10">
+  <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+    <div className="grid grid-cols-12 gap-4">
+      <div className="col-span-6 overflow-hidden rounded-[28px] shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+        <img
+          src="ooo.png"
+          alt="Contractor speaking with homeowner"
+          className="h-[320px] w-full object-cover"
+        />
+      </div>
 
-              <Reveal delay={100}>
-                <h2 className="mt-6 text-4xl font-semibold text-[#2d3748] md:text-5xl">
-                  Why Contractors Love{" "}
-                  <span className="text-blue-600">YSV Financial</span>
-                </h2>
-              </Reveal>
+      <div className="col-span-6 overflow-hidden rounded-[28px] shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+        <img
+          src="bbb.png"
+          alt="Business consultation"
+          className="h-[320px] w-full object-cover"
+        />
+      </div>
 
-              <Reveal delay={180}>
-                <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
-                  Give your business a smarter, faster way to offer financing.
-                  Increase approvals, close more jobs, and deliver a better
-                  customer experience without added friction.
-                </p>
-              </Reveal>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
-            {[
-              {
-                iconBg: "bg-[#315bff]",
-                icon: "$",
-                title: "Lower Dealer Costs",
-                text:
-                  "Avoid costly per-project dealer fees and keep financing as a tool that helps your sales process instead of cutting into margins.",
-                label: "Better margin protection",
-              },
-              {
-                iconBg: "bg-[#17b26a]",
-                icon: "⌘",
-                title: "Easy To Offer",
-                text:
-                  "Send a text link, show a QR code, or follow up later without turning financing into a clunky extra step during the sale.",
-                label: "QR + SMS + follow-up",
-              },
-              {
-                iconBg: "bg-[#8b5cf6]",
-                icon: "↗",
-                title: "Higher Approval Opportunity",
-                text:
-                  "Give more homeowners a chance to move forward by presenting financing options in a simple, guided experience.",
-                label: "More customers can qualify",
-              },
-              {
-                iconBg: "bg-[#f97316]",
-                icon: "⚡",
-                title: "Fast Decisions",
-                text:
-                  "Help homeowners see payment options quickly, often in under 60 seconds, so momentum stays strong in the sales conversation.",
-                label: "Under 60 second experience",
-              },
-              {
-                iconBg: "bg-[#ef4444]",
-                icon: "▣",
-                title: "Wide Financing Range",
-                text:
-                  "Support projects across a broad range of ticket sizes, from smaller repairs to major home improvement jobs.",
-                label: "Flexible project sizing",
-              },
-              {
-                iconBg: "bg-[#ec4899]",
-                icon: "≋",
-                title: "Live Status Tracking",
-                text:
-                  "Track customers from application to approval to funding so your team always knows where each deal stands.",
-                label: "Better team visibility",
-              },
-            ].map((card, i) => (
-              <Reveal key={card.title} delay={i * 70}>
-                <div
-  key={card.title}
-  className="group flex h-full rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]"
->
-                  <div className="flex w-full gap-5">
-                    <div
-                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${card.iconBg} text-2xl text-white shadow-sm`}
-                    >
-                      {card.icon}
-                    </div>
-                    <div className="flex min-h-[180px] min-w-0 flex-1 flex-col">
-                      <h3 className="text-2xl font-semibold text-slate-900">
-                        {card.title}
-                      </h3>
-                      <p className="mt-3 text-base leading-7 text-slate-600">
-                        {card.text}
-                      </p>
-                      <div className="mt-auto flex items-center justify-between gap-4 pt-5 text-sm">
-                        <span className="font-medium text-[#315bff]">
-                          {card.label}
-                        </span>
-                        <span className="text-slate-400 transition group-hover:text-[#315bff]">
-                          Learn More →
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+      <div className="col-span-8 flex col-start-5 items-center rounded-[24px] border border-slate-200 bg-white px-8 py-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+        <div>
+          <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+            Why contractors choose us
+          </p>
+          <h2
+            className="mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-slate-900 md:text-5xl"
+            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+          >
+            Financing that helps
+            <br />
+            you close with confidence
+          </h2>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <section
-        id="how"
-        className="border-t border-blue-100 bg-[#f7fbff] px-6 py-24 shadow-[inset_0_12px_30px_rgba(59,130,246,0.06)] md:px-10"
+    <div className="max-w-xl">
+      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+        Built for real sales conversations
+      </p>
+
+      <h3
+        className="mt-4 text-4xl font-medium leading-[1.04] tracking-[-0.04em] text-slate-900 md:text-5xl"
+        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
       >
-        <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="pt-2">
-            <Reveal>
-              <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-1.5 text-sm font-bold text-blue-500 shadow-sm">
-                How It Works
-              </div>
-            </Reveal>
+        Better financing
+        <br />
+        without adding friction
+      </h3>
 
-            <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-900 md:text-4xl">
-                How It Works In Three Quick Steps
-              </h2>
-            </Reveal>
+      <p className="mt-6 text-[17px] leading-8 text-slate-500">
+        YSV helps contractors offer monthly payment options in a way that feels
+        simple, professional, and natural during the sale. No clunky handoff.
+        No awkward financing moment. Just a faster way to help more homeowners
+        move forward.
+      </p>
 
-            <Reveal delay={180}>
-              <p className="mt-3 max-w-xl text-lg text-slate-600">
-                From first contact to funded project, the process is simple,
-                fast, and built to close more jobs.
-              </p>
-            </Reveal>
-
-            <div className="mt-14 space-y-12">
-              {[
-                {
-                  n: 1,
-                  title: "Offer Financing",
-                  text: (
-                    <>
-                      Send a{" "}
-                      <span className="font-medium text-[#315bff]">
-                        text link or QR code
-                      </span>{" "}
-                      during the sale so customers can instantly explore payment
-                      options.
-                    </>
-                  ),
-                },
-                {
-                  n: 2,
-                  title: "Customers Pre-Qualify",
-                  text: (
-                    <>
-                      Homeowners complete a quick form to{" "}
-                      <span className="font-medium text-[#315bff]">
-                        pre-qualify in minutes
-                      </span>{" "}
-                      without impacting their credit score.
-                    </>
-                  ),
-                },
-                {
-                  n: 3,
-                  title: "Project Gets Funded",
-                  text: (
-                    <>
-                      Once approved, the project moves forward and gets{" "}
-                      <span className="font-medium text-[#315bff]">
-                        funded quickly
-                      </span>{" "}
-                      through the lender.
-                    </>
-                  ),
-                },
-              ].map((step, i) => (
-                <Reveal key={step.n} delay={i * 80}>
-                  <div className="group relative pl-16">
-                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-[#315bff] text-white font-semibold shadow-md transition group-hover:scale-105">
-                      {step.n}
-                    </div>
-
-                    <h3 className="text-xl font-semibold text-slate-900">
-                      {step.title}
-                    </h3>
-
-                    <p className="mt-2 max-w-xl leading-7 text-slate-600">
-                      {step.text}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+      <div className="mt-8 space-y-4">
+        {[
+          "No dealer fees that eat into margins",
+          "Fast approvals that keep momentum alive",
+          "Simple handoff by QR code, text, or direct link",
+          "Clear visibility from application to funding",
+        ].map((item) => (
+          <div key={item} className="flex items-start gap-3">
+            <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#e8efff] text-[#315bff]">
+              ✓
             </div>
+            <p className="text-[15px] leading-7 text-slate-600">{item}</p>
           </div>
+        ))}
+      </div>
 
-          <Reveal delay={160}>
-            <div className="relative flex items-start justify-center pt-[92px] lg:justify-center">
-              <div className="relative flex items-center">
-                <button
-                  type="button"
-                  onClick={() =>
-                    setHowStep((prev) => (prev === 0 ? 2 : prev - 1))
-                  }
-                  className="absolute -left-12 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
-                  aria-label="Previous screen"
-                >
-                  ←
-                </button>
+      <div className="mt-9">
+        <a
+          href="#contact"
+          className="inline-flex items-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-medium tracking-[0.04em] text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-400"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div className="relative w-[310px] rounded-[44px] border-[7px] border-slate-300 bg-[#f8fafc] p-3 shadow-[0_28px_70px_rgba(15,23,42,0.18)]">
-                  <div className="absolute left-1/2 top-3 h-7 w-32 -translate-x-1/2 rounded-full bg-slate-900" />
+{/* BREAK / REMINDER STRIP */}
+<section className="px-6 py-10 md:px-10">
+  <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-200 bg-[#f8faff] px-8 py-6 shadow-[0_14px_35px_rgba(15,23,42,0.04)]">
+    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-slate-400">
+          A better reminder
+        </p>
+        <p className="mt-2 text-[16px] leading-7 text-slate-700">
+          Homeowners don’t usually say no to the project — they say no to the upfront cost.
+        </p>
+      </div>
 
-                  <div className="relative h-[420px] overflow-hidden rounded-[34px] bg-white px-5 pb-5 pt-14">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-sm bg-[#315bff]" />
-                        <p className="text-base font-semibold text-slate-900">
-                          Financing Flow
-                        </p>
-                      </div>
+      <a
+        href="#contact"
+        className="inline-flex w-fit items-center rounded-full bg-[#315bff] px-5 py-3 text-sm font-medium text-white transition hover:scale-[1.02]"
+      >
+        Talk to our team
+      </a>
+    </div>
+  </div>
+</section>
 
-                      <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
-                        Step {howStep + 1} of 3
-                      </div>
-                    </div>
+{/* HOW TO USE */}
+<section id="how" className="bg-white px-6 py-24 md:px-10">
+  <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-3xl text-center">
+      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+        How it works
+      </p>
+      <h2
+        className="mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-slate-900 md:text-5xl"
+        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+      >
+        A simple flow your team
+        <br />
+        can actually use
+      </h2>
+      <p className="mt-6 text-[17px] leading-8 text-slate-500">
+        The process is built to fit naturally into real-world sales conversations,
+        whether you’re in the home, on the phone, or following up after an estimate.
+      </p>
+    </div>
 
-                    {howStep === 0 && (
-                      <div className="absolute inset-x-5 top-14 bottom-5 mt-7 flex flex-col">
-                        <div>
-                          <p className="text-sm font-semibold text-slate-900">
-                            Scan QR Code
-                          </p>
-                          <p className="mt-1 text-xs leading-5 text-slate-500">
-                            Customer scans to open the financing application
-                            instantly.
-                          </p>
-
-                          <div className="mt-6 flex justify-center">
-                            <div className="grid grid-cols-6 gap-1 rounded-xl bg-slate-900 p-3">
-                              {[
-                                1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1,
-                                0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1,
-                                1, 1, 1, 1, 1,
-                              ].map((cell, i) => (
-                                <div
-                                  key={i}
-                                  className={`h-3 w-3 rounded-[2px] ${
-                                    cell ? "bg-white" : "bg-slate-900"
-                                  }`}
-                                />
-                              ))}
-                            </div>
-                          </div>
-
-                          <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4">
-                            <p className="text-sm text-blue-700">
-                              Access Method
-                            </p>
-                            <p className="mt-1 text-base font-semibold text-slate-900">
-                              In-home QR handoff
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {howStep === 1 && (
-                      <div className="absolute inset-x-5 top-14 bottom-5 mt-7 flex flex-col">
-                        <div>
-                          <p className="text-sm font-semibold text-slate-900">
-                            Customer Information
-                          </p>
-
-                          <div className="mt-4 space-y-3">
-                            <div className="rounded-xl border border-slate-200 p-3">
-                              <p className="text-[11px] text-slate-500">
-                                Full Name
-                              </p>
-                              <p className="mt-1 text-sm font-medium text-slate-900">
-                                Sarah Johnson
-                              </p>
-                            </div>
-
-                            <div className="rounded-xl border border-slate-200 p-3">
-                              <p className="text-[11px] text-slate-500">
-                                Project Type
-                              </p>
-                              <p className="mt-1 text-sm font-medium text-slate-900">
-                                Roof Replacement
-                              </p>
-                            </div>
-
-                            <div className="rounded-xl border border-slate-200 p-3">
-                              <p className="text-[11px] text-slate-500">
-                                Requested Amount
-                              </p>
-                              <p className="mt-1 text-sm font-medium text-slate-900">
-                                $12,500
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="mt-auto pt-5">
-                          <button className="w-full rounded-xl bg-gradient-to-r from-[#315bff] to-[#6ea8ff] py-3 text-sm font-semibold text-white">
-                            Submit Application
-                          </button>
-                        </div>
-                      </div>
-                    )}
-
-                    {howStep === 2 && (
-                      <div className="absolute inset-x-5 top-14 bottom-5 mt-7 flex flex-col">
-                        <div>
-                          <p className="text-sm font-semibold text-slate-900">
-                            View Payment Options
-                          </p>
-
-                          <div className="mt-4 space-y-3">
-                            <div className="rounded-xl border border-slate-200 p-3">
-                              <div className="flex items-center justify-between">
-                                <span className="text-sm text-slate-600">
-                                  6 Months
-                                </span>
-                                <span className="text-base font-semibold text-slate-900">
-                                  $99/mo
-                                </span>
-                              </div>
-                            </div>
-
-                            <div className="rounded-xl border border-blue-200 bg-blue-50 p-3">
-                              <div className="flex items-center justify-between">
-                                <span className="text-sm text-blue-700">
-                                  12 Months
-                                </span>
-                                <span className="text-base font-semibold text-slate-900">
-                                  $149/mo
-                                </span>
-                              </div>
-                            </div>
-
-                            <div className="rounded-xl border border-slate-200 p-3">
-                              <div className="flex items-center justify-between">
-                                <span className="text-sm text-slate-600">
-                                  18 Months
-                                </span>
-                                <span className="text-base font-semibold text-slate-900">
-                                  $189/mo
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="mt-auto pt-5">
-                          <button className="w-full rounded-xl bg-gradient-to-r from-[#315bff] to-[#6ea8ff] py-3 text-sm font-semibold text-white">
-                            Send To Customer →
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    setHowStep((prev) => (prev === 2 ? 0 : prev + 1))
-                  }
-                  className="absolute -right-12 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
-                  aria-label="Next screen"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="w-full bg-[#0a1224] py-10 md:py-12">
-        <div className="w-full px-0">
-          <div className="w-full bg-[#0a1224] px-6 py-10 text-center text-white md:px-10 md:py-12">
-            <Reveal>
-              <h2 className="text-2xl font-semibold md:text-3xl">
-                Start Closing More Jobs With Financing
-              </h2>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-slate-300">
-                Give your team a faster, easier way to offer monthly payment
-                options and turn more estimates into signed deals.
-              </p>
-            </Reveal>
-
-            <Reveal delay={180}>
-              <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  href="#contact"
-                  className="demo-button rounded-xl bg-gradient-to-r from-[#315bff] to-[#6ea8ff] px-6 py-3 text-base font-semibold text-white shadow-[0_10px_30px_rgba(49,91,255,0.28)] transition hover:scale-[1.03]"
-                >
-                  Request A Demo →
-                </a>
-
-                <a
-                  href="#how"
-                  className="rounded-xl border border-white/20 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10"
-                >
-                  Learn More
-                </a>
-              </div>
-            </Reveal>
+    <div className="mt-16 grid gap-6 lg:grid-cols-3">
+      {[
+        {
+          step: "01",
+          title: "Offer financing during the sale",
+          text: "Send a text link, share a QR code, or walk the homeowner through the application in real time.",
+          image:
+            "/sms.png",
+        },
+        {
+          step: "02",
+          title: "Customer reviews payment options",
+          text: "Homeowners pre-qualify and see options quickly, helping them focus on what they can afford each month.",
+          image:
+            "/lll.png",
+        },
+        {
+          step: "03",
+          title: "Project moves forward faster",
+          text: "Once the customer selects an option, your team has better visibility and the deal keeps moving.",
+          image:
+            "/sss.png", 
+        },
+      ].map((item) => (
+        <div
+          key={item.step}
+          className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.05)]"
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            className="h-[220px] w-full object-cover"
+          />
+          <div className="px-7 py-7">
+            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#315bff]">
+              Step {item.step}
+            </p>
+            <h3 className="mt-3 text-[24px] font-medium tracking-[-0.03em] text-slate-900">
+              {item.title}
+            </h3>
+            <p className="mt-4 text-[15px] leading-7 text-slate-500">
+              {item.text}
+            </p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
-      <section id="industries" className="bg-white px-6 py-24 md:px-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-600 shadow-sm">
-                Favorite Industries
-              </div>
-            </Reveal>
+{/* FEATURE SPOTLIGHT 1 */}
+<section className="bg-[#fafbff] px-6 py-24 md:px-10">
+  <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]">
+    <div className="overflow-hidden rounded-[32px] shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+      <img
+        src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1400&auto=format&fit=crop"
+        alt="People in business conversation"
+        className="h-[520px] w-full object-cover"
+      />
+    </div>
 
-            <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-900 md:text-4xl">
-                Industries We Serve
-              </h2>
-            </Reveal>
+    <div className="max-w-xl">
+      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+        Feature spotlight
+      </p>
+      <h3
+        className="mt-4 text-4xl font-medium leading-[1.03] tracking-[-0.04em] text-slate-900 md:text-5xl"
+        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+      >
+        More clarity
+        <br />
+        for your team
+      </h3>
+      <p className="mt-6 text-[17px] leading-8 text-slate-500">
+        Financing only helps if your reps can actually follow what’s happening.
+        YSV is designed to give your team a cleaner view of where each homeowner
+        is in the process, so follow-up becomes easier and nothing gets lost.
+      </p>
 
-            <Reveal delay={180}>
-              <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-500">
-                Flexible financing options built for home service businesses and
-                other project-based industries that need a smoother way to help
-                customers move forward.
-              </p>
-            </Reveal>
+      <div className="mt-8 grid gap-4">
+        {[
+          "Track where customers are in the flow",
+          "Know when an application has been started",
+          "See when options are ready to review",
+          "Reduce guesswork in post-estimate follow-up",
+        ].map((item) => (
+          <div
+            key={item}
+            className="rounded-[20px] border border-slate-200 bg-white px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
+          >
+            <p className="text-[15px] leading-7 text-slate-700">{item}</p>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div className="mx-auto mt-14 grid max-w-6xl grid-cols-4 gap-4">
-            {[
-              "Roofing",
-              "HVAC",
-              "Plumbing",
-              "Electrical",
-              "Windows & Doors",
-              "Kitchen & Bath",
-              "Flooring",
-              "Painting",
-              "Pools & Spas",
-              "Solar",
-              "Home Services",
-              "General Contractors",
-            ].map((industry, i) => {
-              const isActive = activeIndustry === industry;
+{/* FEATURE SPOTLIGHT 2 */}
+<section className="bg-white px-6 py-24 md:px-10">
+  <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.02fr_0.98fr]">
+    <div className="max-w-xl">
+      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+        Designed for modern contractors
+      </p>
+      <h3
+        className="mt-4 text-4xl font-medium leading-[1.03] tracking-[-0.04em] text-slate-900 md:text-5xl"
+        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+      >
+        A financing experience
+        <br />
+        that feels on-brand
+      </h3>
+      <p className="mt-6 text-[17px] leading-8 text-slate-500">
+        Homeowners are more likely to move forward when the payment conversation
+        feels clean, simple, and credible. Present financing in a way that feels
+        like part of a premium sales experience — not a last-minute add-on.
+      </p>
 
-              return (
-                <Reveal key={industry} delay={i * 40}>
-                  <button
-                    type="button"
-                    onMouseEnter={() => setActiveIndustry(industry)}
-                    onClick={() => setActiveIndustry(industry)}
-                    className={`w-full rounded-2xl border px-6 py-5 text-center text-[15px] font-medium transition duration-200 ${
-                      isActive
-                        ? "animate-[industryPulse_1s_ease-in-out_infinite] border-[#8be9ff] bg-[#f3fbff] text-[#2f9fcb] shadow-[0_0_0_1px_rgba(139,233,255,0.35),0_10px_30px_rgba(47,159,203,0.12)]"
-                        : "border-slate-200 bg-white text-slate-700 shadow-sm hover:-translate-y-0.5 hover:border-[#8be9ff] hover:text-[#2f9fcb] hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)]"
-                    }`}
-                  >
-                    {industry}
-                  </button>
-                </Reveal>
-              );
-            })}
+      <div className="mt-8 flex flex-wrap gap-3">
+        {[
+          "Better presentation",
+          "Lower friction",
+          "Cleaner handoff",
+          "More homeowner confidence",
+        ].map((item) => (
+          <div
+            key={item}
+            className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+          >
+            {item}
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
 
-      <section id="testimonials" className="bg-[#f8fbff] px-6 py-24 md:px-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-600 shadow-sm">
-                Testimonials
-              </div>
-            </Reveal>
+    <div className="grid grid-cols-2 gap-4">
+      <div className="overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.07)]">
+        <img
+          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop"
+          alt="Contractor and customer"
+          className="h-[240px] w-full object-cover"
+        />
+      </div>
+      <div className="overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.07)]">
+        <img
+          src="/xxx.png"
+          alt="People reviewing plans"
+          className="h-[240px] w-full object-cover"
+        />
+      </div>
+      <div className="col-span-2 overflow-hidden rounded-[28px] shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
+        <img
+          src="/zzz.png"
+          alt="Customer decision moment"
+          className="h-[260px] w-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
-            <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-900 md:text-4xl">
-                What Contractors Are Saying
-              </h2>
-            </Reveal>
+{/* FINAL CTA */}
+<section id="contact" className="px-6 py-24 md:px-10">
+  <div className="mx-auto max-w-7xl rounded-[36px] bg-gradient-to-br from-[#0f2a6b] via-[#1f4aa8] to-[#315bff] px-10 py-16 text-white shadow-[0_30px_90px_rgba(49,91,255,0.22)]">
+    <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.9fr]">
+      <div className="max-w-2xl">
+        <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-white/65">
+          Ready to see it in action?
+        </p>
+        <h2
+          className="mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-white md:text-5xl"
+          style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+        >
+          Give your team a more
+          <br />
+          elegant way to offer financing
+        </h2>
+        <p className="mt-6 text-[17px] leading-8 text-white/78">
+          We’ll show you how YSV fits into your sales process, what the customer
+          journey looks like, and how financing can help you close more jobs without
+          making the experience feel complicated.
+        </p>
 
-            <Reveal delay={180}>
-              <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-500">
-                Real feedback from contractors using financing to close more
-                jobs, reduce friction, and create a smoother customer
-                experience.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="mt-14">
-            <div className="flex items-center justify-between">
-              <button
-                type="button"
-                onClick={prevTestimonials}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900"
-                aria-label="Previous testimonials"
-              >
-                ←
-              </button>
-
-              <div className="mx-6 grid flex-1 grid-cols-3 gap-6">
-                {visibleTestimonials.map((testimonial, index) => {
-                  const isCenter = index === 1;
-
-                  return (
-                    <Reveal
-                      key={`${testimonial.name}-${testimonial.company}`}
-                      delay={index * 80}
-                    >
-                      <div
-                        className={`rounded-[28px] border p-7 transition duration-300 ${
-                          isCenter
-                            ? "border-blue-200 bg-white shadow-[0_18px_50px_rgba(49,91,255,0.12)]"
-                            : "border-slate-200 bg-white/80 shadow-sm"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex gap-1 text-[#315bff]">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                          </div>
-
-                          <span
-                            className={`rounded-full px-3 py-1 text-xs font-medium ${
-                              isCenter
-                                ? "bg-blue-50 text-[#315bff]"
-                                : "bg-slate-100 text-slate-600"
-                            }`}
-                          >
-                            {testimonial.stat}
-                          </span>
-                        </div>
-
-                        <p className="mt-6 min-h-[168px] text-lg leading-8 text-slate-700">
-                          “{testimonial.quote}”
-                        </p>
-
-                        <div className="mt-8 border-t border-slate-100 pt-5">
-                          <p className="text-base font-semibold text-slate-900">
-                            {testimonial.name}
-                          </p>
-                          <p className="mt-1 text-sm text-slate-500">
-                            {testimonial.company}
-                          </p>
-                        </div>
-                      </div>
-                    </Reveal>
-                  );
-                })}
-              </div>
-
-              <button
-                type="button"
-                onClick={nextTestimonials}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900"
-                aria-label="Next testimonials"
-              >
-                →
-              </button>
+        <div className="mt-8 flex flex-wrap gap-3">
+          {["Fast walkthrough", "No pressure", "Contractor-focused"].map((item) => (
+            <div
+              key={item}
+              className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur"
+            >
+              {item}
             </div>
-
-            <div className="mt-8 flex items-center justify-center gap-2">
-              {testimonials.map((_, index) => {
-                const isActive = index === testimonialIndex;
-                return (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => setTestimonialIndex(index)}
-                    className={`h-2.5 rounded-full transition ${
-                      isActive
-                        ? "w-8 bg-[#315bff]"
-                        : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                    }`}
-                    aria-label={`Go to testimonial set ${index + 1}`}
-                  />
-                );
-              })}
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
 
-      <section id="contact" className="bg-[#dbeef4] px-6 py-24 md:px-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.95fr]">
-            <div>
-              <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-600 shadow-sm">
-                  Contact Us
-                </div>
-              </Reveal>
-
-              <Reveal delay={100}>
-                <h2 className="mt-4 text-3xl font-semibold text-slate-900 md:text-4xl">
-                  Let’s Help You Offer Financing More Confidently
-                </h2>
-              </Reveal>
-
-              <Reveal delay={180}>
-                <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-                  Tell us a little about your business and we’ll show you how
-                  financing can fit naturally into your sales process, improve
-                  close rates, and make larger projects easier for customers to
-                  move forward with.
-                </p>
-              </Reveal>
-
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {[
-                  {
-                    title: "Fast Response",
-                    text: "We’ll follow up quickly to learn about your goals and answer questions.",
-                  },
-                  {
-                    title: "Tailored Demo",
-                    text: "Get a walkthrough focused on your sales process, team, and industry.",
-                  },
-                  {
-                    title: "Built For Contractors",
-                    text: "Designed for real-world use in home services and project-based sales.",
-                  },
-                  {
-                    title: "No Pressure",
-                    text: "Just a clear conversation about whether this is the right fit.",
-                  },
-                ].map((item, i) => (
-                  <Reveal key={item.title} delay={i * 70}>
-                    <div className="rounded-2xl border border-white/70 bg-white/70 p-5 shadow-sm backdrop-blur">
-                      <p className="text-sm font-medium text-[#315bff]">
-                        {item.title}
-                      </p>
-                      <p className="mt-2 text-slate-700">{item.text}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-
-            <Reveal delay={160}>
-              <div className="rounded-[32px] border border-white/80 bg-white p-7 shadow-[0_20px_60px_rgba(49,91,255,0.10)]">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-[#315bff]">
-                      Request A Demo
-                    </p>
-                    <h3 className="mt-1 text-2xl font-semibold text-slate-900">
-                      Talk To Our Team
-                    </h3>
-                  </div>
-
-                  <div className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-[#315bff]">
-                    2 min form
-                  </div>
-                </div>
-
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      value={contactForm.name}
-                      onChange={(e) =>
-                        setContactForm({ ...contactForm, name: e.target.value })
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-[#315bff] focus:bg-white focus:ring-4 focus:ring-blue-100"
-                      placeholder="John Smith"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      value={contactForm.company}
-                      onChange={(e) =>
-                        setContactForm({
-                          ...contactForm,
-                          company: e.target.value,
-                        })
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-[#315bff] focus:bg-white focus:ring-4 focus:ring-blue-100"
-                      placeholder="ABC Roofing"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      value={contactForm.email}
-                      onChange={(e) =>
-                        setContactForm({ ...contactForm, email: e.target.value })
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-[#315bff] focus:bg-white focus:ring-4 focus:ring-blue-100"
-                      placeholder="you@company.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      value={contactForm.phone}
-                      onChange={(e) =>
-                        setContactForm({ ...contactForm, phone: e.target.value })
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-[#315bff] focus:bg-white focus:ring-4 focus:ring-blue-100"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <label className="mb-2 block text-sm font-medium text-slate-700">
-                    Tell Us About Your Business
-                  </label>
-                  <textarea
-                    rows={5}
-                    value={contactForm.message}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, message: e.target.value })
-                    }
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-[#315bff] focus:bg-white focus:ring-4 focus:ring-blue-100"
-                    placeholder="What services do you offer and how are you currently handling financing conversations?"
-                  />
-                </div>
-
-                <button
-                  type="button"
-                  className="demo-button mt-6 w-full rounded-xl bg-gradient-to-r from-[#315bff] to-[#6ea8ff] px-6 py-4 text-base font-semibold text-white shadow-[0_14px_35px_rgba(49,91,255,0.22)] transition hover:scale-[1.01]"
-                >
-                  Submit Request →
-                </button>
-
-                <p className="mt-4 text-center text-sm text-slate-500">
-                  We’ll use your info only to follow up about financing
-                  solutions for your business.
-                </p>
-              </div>
-            </Reveal>
-          </div>
+      <div className="rounded-[30px] border border-white/15 bg-white/10 p-7 backdrop-blur">
+        <div className="grid gap-4">
+          <input
+            type="text"
+            placeholder="Full name"
+            className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
+          />
+          <input
+            type="text"
+            placeholder="Company"
+            className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
+          />
+          <textarea
+            rows={4}
+            placeholder="Tell us a little about your business"
+            className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
+          />
+          <button
+            type="button"
+            className="rounded-xl bg-white px-6 py-4 text-base font-semibold text-[#1f4aa8] transition hover:scale-[1.01]"
+          >
+            Request a Demo
+          </button>
         </div>
-      </section>
-
+      </div>
+    </div>
+  </div>
+</section>
+    
       <footer className="relative overflow-hidden bg-gradient-to-br from-[#050b1a] via-[#0b1f4a] to-[#1e3a8a] px-6 pb-8 pt-20 text-white md:px-10">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-0 top-0 h-[320px] w-[320px] bg-[#315bff]/25 blur-[120px]" />

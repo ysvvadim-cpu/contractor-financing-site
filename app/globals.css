@@ -112,3 +112,16 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.marquee-track {
+  animation: industriesMarquee 28s linear infinite;
+}
+
+@keyframes industriesMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
