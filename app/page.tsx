@@ -199,9 +199,11 @@ export default function Home() {
   className="text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] md:text-7xl"
   style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
 >
-  More Jobs @ Higher&nbsp;Prices
+  Win More Jobs,
   <br />
-  Home Improvement Financing
+   <span className="text-[#DAA06D]">
+    Without More Estimates
+  </span>
 </h1>
 
               <p className="mt-5 max-w-[320px] text-[15px] leading-7 text-white/82 sm:max-w-[420px] sm:text-[17px] md:mt-7 md:max-w-[520px] md:text-[19px] md:leading-8">
