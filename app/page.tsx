@@ -117,16 +117,16 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
         <div className="mx-auto max-w-7xl bg-white">
-          <div className="flex items-center justify-between px-5 py-3 md:px-6">
+          <div className="flex items-center justify-between px-4 py-3 md:px-6">
             <div className="flex items-center">
               <img
                 src="/ysv-logo-blue.png?v=5"
                 alt="YSV Financial"
-                className="h-10 w-auto object-contain transition duration-300 hover:scale-105"
+                className="h-8 w-auto object-contain transition duration-300 hover:scale-105 md:h-10"
               />
             </div>
 
-            <div className="ml-auto flex items-center gap-10">
+            <div className="ml-auto flex items-center gap-3 md:gap-10">
               <nav className="hidden items-center gap-7 lg:flex">
                 <a
                   href="#why"
@@ -160,16 +160,16 @@ export default function Home() {
                 </a>
               </nav>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 md:gap-3">
                 <a
                   href="#contact"
-                  className="header-signup rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-5 py-2.5 text-sm font-black uppercase tracking-wide text-white shadow-[0_12px_30px_rgba(49,91,255,0.22)] transition duration-300 hover:scale-[1.04] hover:shadow-[0_16px_40px_rgba(49,91,255,0.30)]"
+                  className="header-signup rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-3 py-2 text-[11px] font-black uppercase tracking-wide text-white shadow-[0_12px_30px_rgba(49,91,255,0.22)] transition duration-300 hover:scale-[1.04] hover:shadow-[0_16px_40px_rgba(49,91,255,0.30)] md:px-5 md:py-2.5 md:text-sm"
                 >
                   Sign Up
                 </a>
                 <a
                   href="#contact"
-                  className="rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-black uppercase tracking-wide text-slate-800 transition duration-300 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50"
+                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-[11px] font-black uppercase tracking-wide text-slate-800 transition duration-300 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 md:px-5 md:py-2.5 md:text-sm"
                 >
                   Login
                 </a>
@@ -180,55 +180,48 @@ export default function Home() {
       </header>
 
       <section className="relative overflow-hidden">
-  {/* BACKGROUND IMAGE */}
-  <img
-    src="/demo-hero.png"
-    alt="YSV Financial hero"
-    className="absolute inset-0 h-full w-full object-cover object-[70%_center] scale-105 brightness-[0.85]"
-  />
+        <img
+          src="/demo-hero.png"
+          alt="YSV Financial hero"
+          className="absolute inset-0 h-full w-full object-cover object-[82%_center] scale-105 brightness-[0.72] md:object-[70%_center] md:brightness-[0.85]"
+        />
 
-  {/* DARK OVERLAY */}
-  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/15 md:from-black/80 md:via-black/60 md:to-black/10" />
 
-  {/* CONTENT */}
-  <Reveal>
-    <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 text-white md:py-32">
-      <div className="max-w-[800px]">
-        {/* SMALL TOP TEXT */}
-        <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-white/72">
-          Built for contractors & home services
-        </p>
+        <Reveal>
+          <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 text-white md:px-6 md:py-32">
+            <div className="max-w-[340px] sm:max-w-[460px] md:max-w-[800px]">
+              <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.2em] text-white/72 md:mb-4 md:text-[11px] md:tracking-[0.24em]">
+                Built for contractors & home services
+              </p>
 
-        {/* HEADLINE */}
-        <h1
-          className="text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] md:text-7xl"
-          style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-        >
-          More Jobs @ Higher Prices
-          <br />
-          Home Improvement Financing
-        </h1>
+              <h1
+                className="text-[34px] font-medium leading-[0.98] tracking-[-0.05em] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] sm:text-[42px] md:text-7xl"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+              >
+                More Jobs @ Higher Prices
+                <br />
+                Home Improvement Financing
+              </h1>
 
-        {/* SUBTEXT */}
-        <p className="mt-7 max-w-[520px] text-[18px] leading-8 text-white/82 md:text-[19px]">
-          Close more sales with instant approvals, cleaner handoffs, and zero
-          dealer fees.
-        </p>
+              <p className="mt-5 max-w-[320px] text-[15px] leading-7 text-white/82 sm:max-w-[420px] sm:text-[17px] md:mt-7 md:max-w-[520px] md:text-[19px] md:leading-8">
+                Close more sales with instant approvals, cleaner handoffs, and zero
+                dealer fees.
+              </p>
 
-        {/* BUTTON */}
-        <div className="mt-9">
-          <a
-            href="#contact"
-            className="hero-heartbeat-fast inline-flex items-center rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-7 py-3.5 text-base font-semibold text-white shadow-[0_20px_60px_rgba(49,91,255,0.45)] transition hover:scale-[1.05]"
-          >
-            Get Started →
-          </a>
-        </div>
-      </div>
-    </div>
-  </Reveal>
+              <div className="mt-7 md:mt-9">
+                <a
+                  href="#contact"
+                  className="hero-heartbeat-fast inline-flex items-center rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-6 py-3 text-sm font-semibold text-white shadow-[0_20px_60px_rgba(49,91,255,0.45)] transition hover:scale-[1.05] md:px-7 md:py-3.5 md:text-base"
+                >
+                  Get Started →
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
 
-        <div className="relative z-20 overflow-hidden bg-[#DAA06D] py-5">
+        <div className="relative z-20 overflow-hidden bg-[#DAA06D] py-3 md:py-5">
           <div className="marquee-track flex w-max items-center">
             {[
               "Roofing",
@@ -258,7 +251,7 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="mx-5 flex items-center gap-5 whitespace-nowrap text-sm font-semibold uppercase tracking-[0.16em] text-white/90"
+                className="mx-4 flex items-center gap-4 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 md:mx-5 md:gap-5 md:text-sm md:tracking-[0.16em]"
               >
                 <span>{item}</span>
                 <span className="text-white/30">•</span>
@@ -268,18 +261,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-20 md:px-10">
+      <section className="bg-white px-4 py-16 md:px-10 md:py-20">
         <Reveal>
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-4xl text-center">
-              <p className="text-[17px] leading-8 text-slate-500 md:text-[18px]">
+              <p className="text-[15px] leading-7 text-slate-500 md:text-[18px] md:leading-8">
                 More approvals. More closed jobs. No dealer fees. YSV gives
                 contractors a faster, simpler way to offer financing—helping
                 homeowners move forward while you grow your business.
               </p>
             </div>
 
-            <div className="mt-14 grid gap-10 md:grid-cols-4 md:gap-8">
+            <div className="mt-10 grid gap-8 sm:grid-cols-2 md:mt-14 md:gap-8 lg:grid-cols-4">
               {[
                 {
                   title: "Fast Credit Decisions",
@@ -288,7 +281,7 @@ export default function Home() {
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="h-9 w-9"
+                      className="h-8 w-8 md:h-9 md:w-9"
                       stroke="currentColor"
                       strokeWidth="1.7"
                       strokeLinecap="round"
@@ -309,7 +302,7 @@ export default function Home() {
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="h-9 w-9"
+                      className="h-8 w-8 md:h-9 md:w-9"
                       stroke="currentColor"
                       strokeWidth="1.7"
                       strokeLinecap="round"
@@ -322,6 +315,7 @@ export default function Home() {
                     </svg>
                   ),
                 },
+
                 {
                   title: "Flexible Terms",
                   desc: "Offer financing structures that make larger projects feel manageable for more homeowners.",
@@ -329,7 +323,7 @@ export default function Home() {
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="h-9 w-9"
+                      className="h-8 w-8 md:h-9 md:w-9"
                       stroke="currentColor"
                       strokeWidth="1.7"
                       strokeLinecap="round"
@@ -350,7 +344,7 @@ export default function Home() {
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="h-9 w-9"
+                      className="h-8 w-8 md:h-9 md:w-9"
                       stroke="currentColor"
                       strokeWidth="1.7"
                       strokeLinecap="round"
@@ -366,20 +360,20 @@ export default function Home() {
                   ),
                 },
               ].map((item, i) => (
-                <div key={i} className="relative text-center md:px-5">
+                <div key={i} className="relative px-2 text-center md:px-5">
                   {i !== 3 && (
-                    <div className="absolute right-0 top-3 hidden h-[140px] w-px bg-slate-200 md:block" />
+                    <div className="absolute right-0 top-3 hidden h-[140px] w-px bg-slate-200 lg:block" />
                   )}
 
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#d8e3ff] bg-[#f8fbff] text-[#315bff]">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#d8e3ff] bg-[#f8fbff] text-[#315bff] md:h-14 md:w-14">
                     {item.icon}
                   </div>
 
-                  <h3 className="mt-5 text-[24px] font-medium tracking-[-0.03em] text-slate-900">
+                  <h3 className="mt-4 text-[21px] font-medium tracking-[-0.03em] text-slate-900 md:mt-5 md:text-[24px]">
                     {item.title}
                   </h3>
 
-                  <p className="mx-auto mt-4 max-w-[240px] text-[15px] leading-7 text-slate-500">
+                  <p className="mx-auto mt-3 max-w-[260px] text-[14px] leading-6 text-slate-500 md:mt-4 md:max-w-[240px] md:text-[15px] md:leading-7">
                     {item.desc}
                   </p>
                 </div>
@@ -389,33 +383,33 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="why" className="bg-[#fcfcfd] px-6 py-24 md:px-10">
+      <section id="why" className="bg-[#fcfcfd] px-4 py-16 md:px-10 md:py-24">
         <Reveal>
-          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-6 overflow-hidden rounded-[28px] shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+          <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-12">
+              <div className="col-span-1 overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.08)] md:col-span-6 md:rounded-[28px]">
                 <img
                   src="ooo.png"
                   alt="Contractor speaking with homeowner"
-                  className="h-[320px] w-full object-cover"
+                  className="h-[180px] w-full object-cover md:h-[320px]"
                 />
               </div>
 
-              <div className="col-span-6 overflow-hidden rounded-[28px] shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+              <div className="col-span-1 overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.08)] md:col-span-6 md:rounded-[28px]">
                 <img
                   src="bbb.png"
                   alt="Business consultation"
-                  className="h-[320px] w-full object-cover"
+                  className="h-[180px] w-full object-cover md:h-[320px]"
                 />
               </div>
 
-              <div className="col-span-8 col-start-5 flex items-center rounded-[24px] border border-slate-200 bg-white px-8 py-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+              <div className="col-span-2 flex items-center rounded-[22px] border border-slate-200 bg-white px-5 py-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:col-span-8 md:col-start-5 md:rounded-[24px] md:px-8 md:py-7">
                 <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
                     Why contractors choose us
                   </p>
                   <h2
-                    className="mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-slate-900 md:text-5xl"
+                    className="mt-3 text-[30px] font-medium leading-[1.04] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.02]"
                     style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
                   >
                     Financing that helps
@@ -426,13 +420,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="max-w-xl">
-              <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+            <div className="max-w-none lg:max-w-xl">
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
                 Built for real sales conversations
               </p>
 
               <h3
-                className="mt-4 text-4xl font-medium leading-[1.04] tracking-[-0.04em] text-slate-900 md:text-5xl"
+                className="mt-3 text-[30px] font-medium leading-[1.06] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.04]"
                 style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
               >
                 Better financing
@@ -440,14 +434,14 @@ export default function Home() {
                 without adding friction
               </h3>
 
-              <p className="mt-6 text-[17px] leading-8 text-slate-500">
+              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
                 YSV helps contractors offer monthly payment options in a way
                 that feels simple, professional, and natural during the sale.
                 No clunky handoff. No awkward financing moment. Just a faster
                 way to help more homeowners move forward.
               </p>
 
-              <div className="mt-8 space-y-4">
+              <div className="mt-7 space-y-4 md:mt-8">
                 {[
                   "No dealer fees that eat into margins",
                   "Fast approvals that keep momentum alive",
@@ -458,17 +452,17 @@ export default function Home() {
                     <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#e8efff] text-[#315bff]">
                       ✓
                     </div>
-                    <p className="text-[15px] leading-7 text-slate-600">
+                    <p className="text-[14px] leading-6 text-slate-600 md:text-[15px] md:leading-7">
                       {item}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-9">
+              <div className="mt-8 md:mt-9">
                 <a
                   href="#contact"
-                  className="inline-flex items-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-medium tracking-[0.04em] text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-400"
+                  className="inline-flex items-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium tracking-[0.04em] text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-400 md:px-6"
                 >
                   Learn More
                 </a>
@@ -478,15 +472,15 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="px-6 py-10 md:px-10">
+      <section className="px-4 py-8 md:px-10 md:py-10">
         <Reveal>
-          <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-200 bg-[#f8faff] px-8 py-6 shadow-[0_14px_35px_rgba(15,23,42,0.04)]">
+          <div className="mx-auto max-w-7xl rounded-[20px] border border-slate-200 bg-[#f8faff] px-5 py-5 shadow-[0_14px_35px_rgba(15,23,42,0.04)] md:rounded-[24px] md:px-8 md:py-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-slate-400">
+                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.22em]">
                   A better reminder
                 </p>
-                <p className="mt-2 text-[16px] leading-7 text-slate-700">
+                <p className="mt-2 text-[15px] leading-6 text-slate-700 md:text-[16px] md:leading-7">
                   Homeowners don’t usually say no to the project — they say no
                   to the upfront cost.
                 </p>
@@ -494,7 +488,7 @@ export default function Home() {
 
               <a
                 href="#contact"
-                className="inline-flex w-fit items-center rounded-full bg-[#315bff] px-5 py-3 text-sm font-medium text-white transition hover:scale-[1.02]"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#315bff] px-5 py-3 text-sm font-medium text-white transition hover:scale-[1.02] md:w-fit"
               >
                 Talk to our team
               </a>
@@ -503,29 +497,30 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="how" className="bg-white px-6 py-24 md:px-10">
+      <section id="how" className="bg-white px-4 py-16 md:px-10 md:py-24">
         <Reveal>
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
                 How it works
               </p>
               <h2
-                className="mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-slate-900 md:text-5xl"
+                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.02]"
                 style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
               >
                 A simple flow your team
                 <br />
                 can actually use
               </h2>
-              <p className="mt-6 text-[17px] leading-8 text-slate-500">
+
+              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
                 The process is built to fit naturally into real-world sales
                 conversations, whether you’re in the home, on the phone, or
                 following up after an estimate.
               </p>
             </div>
 
-            <div className="mt-16 grid gap-6 lg:grid-cols-3">
+            <div className="mt-12 grid gap-5 md:mt-16 lg:grid-cols-3 lg:gap-6">
               {[
                 {
                   step: "01",
@@ -548,21 +543,21 @@ export default function Home() {
               ].map((item) => (
                 <div
                   key={item.step}
-                  className="how-card group overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#bfd0ff] hover:shadow-[0_26px_70px_rgba(49,91,255,0.12)]"
+                  className="how-card group overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#bfd0ff] hover:shadow-[0_26px_70px_rgba(49,91,255,0.12)] md:rounded-[28px]"
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-[220px] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    className="h-[180px] w-full object-cover transition duration-500 group-hover:scale-[1.03] md:h-[220px]"
                   />
-                  <div className="px-7 py-7">
-                    <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#315bff]">
+                  <div className="px-5 py-6 md:px-7 md:py-7">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-[#315bff] md:text-[11px] md:tracking-[0.2em]">
                       Step {item.step}
                     </p>
-                    <h3 className="mt-3 text-[24px] font-medium tracking-[-0.03em] text-slate-900 transition-colors duration-300 group-hover:text-[#1f4aa8]">
+                    <h3 className="mt-3 text-[22px] font-medium leading-[1.15] tracking-[-0.03em] text-slate-900 transition-colors duration-300 group-hover:text-[#1f4aa8] md:text-[24px]">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-[15px] leading-7 text-slate-500">
+                    <p className="mt-4 text-[14px] leading-6 text-slate-500 md:text-[15px] md:leading-7">
                       {item.text}
                     </p>
                   </div>
@@ -575,38 +570,38 @@ export default function Home() {
 
       <section
         id="clarity"
-        className="bg-[#fafbff] px-6 py-24 md:px-10"
+        className="bg-[#fafbff] px-4 py-16 md:px-10 md:py-24"
       >
         <Reveal>
-          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="overflow-hidden rounded-[32px] shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+          <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
+            <div className="overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(15,23,42,0.08)] md:rounded-[32px]">
               <img
                 src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1400&auto=format&fit=crop"
                 alt="People in business conversation"
-                className="h-[520px] w-full object-cover"
+                className="h-[260px] w-full object-cover md:h-[520px]"
               />
             </div>
 
-            <div className="max-w-xl">
-              <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+            <div className="max-w-none lg:max-w-xl">
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
                 Feature spotlight
               </p>
               <h3
-                className="mt-4 text-4xl font-medium leading-[1.03] tracking-[-0.04em] text-slate-900 md:text-5xl"
+                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.03]"
                 style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
               >
                 More clarity
                 <br />
                 for your team
               </h3>
-              <p className="mt-6 text-[17px] leading-8 text-slate-500">
+              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
                 Financing only helps if your reps can actually follow what’s
                 happening. YSV is designed to give your team a cleaner view of
                 where each homeowner is in the process, so follow-up becomes
                 easier and nothing gets lost.
               </p>
 
-              <div className="mt-8 grid gap-4">
+              <div className="mt-7 grid gap-3 md:mt-8 md:gap-4">
                 {[
                   "Track where customers are in the flow",
                   "Know when an application has been started",
@@ -615,9 +610,9 @@ export default function Home() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="rounded-[20px] border border-slate-200 bg-white px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
+                    className="rounded-[18px] border border-slate-200 bg-white px-4 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.04)] md:rounded-[20px] md:px-5"
                   >
-                    <p className="text-[15px] leading-7 text-slate-700">
+                    <p className="text-[14px] leading-6 text-slate-700 md:text-[15px] md:leading-7">
                       {item}
                     </p>
                   </div>
@@ -628,29 +623,29 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="bg-white px-6 py-24 md:px-10">
+      <section className="bg-white px-4 py-16 md:px-10 md:py-24">
         <Reveal>
-          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.02fr_0.98fr]">
-            <div className="max-w-xl">
-              <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+          <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-16">
+            <div className="max-w-none lg:max-w-xl">
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
                 Designed for modern contractors
               </p>
               <h3
-                className="mt-4 text-4xl font-medium leading-[1.03] tracking-[-0.04em] text-slate-900 md:text-5xl"
+                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.03]"
                 style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
               >
                 A financing experience
                 <br />
                 that feels on-brand
               </h3>
-              <p className="mt-6 text-[17px] leading-8 text-slate-500">
+              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
                 Homeowners are more likely to move forward when the payment
                 conversation feels clean, simple, and credible. Present
                 financing in a way that feels like part of a premium sales
                 experience — not a last-minute add-on.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
                 {[
                   "Better presentation",
                   "Lower friction",
@@ -667,26 +662,26 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.07)]">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="overflow-hidden rounded-[22px] shadow-[0_18px_50px_rgba(15,23,42,0.07)] md:rounded-[24px]">
                 <img
                   src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop"
                   alt="Contractor and customer"
-                  className="h-[240px] w-full object-cover"
+                  className="h-[210px] w-full object-cover md:h-[240px]"
                 />
               </div>
-              <div className="overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.07)]">
+              <div className="hidden overflow-hidden rounded-[22px] shadow-[0_18px_50px_rgba(15,23,42,0.07)] sm:block md:rounded-[24px]">
                 <img
                   src="/xxx.png"
                   alt="People reviewing plans"
-                  className="h-[240px] w-full object-cover"
+                  className="h-[210px] w-full object-cover md:h-[240px]"
                 />
               </div>
-              <div className="col-span-2 overflow-hidden rounded-[28px] shadow-[0_22px_55px_rgba(15,23,42,0.08)]">
+              <div className="overflow-hidden rounded-[24px] shadow-[0_22px_55px_rgba(15,23,42,0.08)] sm:col-span-2 md:rounded-[28px]">
                 <img
                   src="/zzz.png"
                   alt="Customer decision moment"
-                  className="h-[260px] w-full object-cover"
+                  className="h-[220px] w-full object-cover md:h-[260px]"
                 />
               </div>
             </div>
@@ -694,37 +689,37 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="testimonials" className="bg-[#fcfcfd] px-6 py-24 md:px-10">
+      <section id="testimonials" className="bg-[#fcfcfd] px-4 py-16 md:px-10 md:py-24">
         <Reveal>
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-400">
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
                 Testimonials
               </p>
               <h2
-                className="mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-slate-900 md:text-5xl"
+                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.02]"
                 style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
               >
                 What contractors are saying
               </h2>
-              <p className="mt-6 text-[17px] leading-8 text-slate-500">
+              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
                 Real feedback from teams using financing to present options more
                 clearly, close more confidently, and create a smoother customer
                 experience.
               </p>
             </div>
 
-            <div className="mt-14 flex items-center justify-between gap-4">
+            <div className="mt-10 flex items-center justify-between gap-3 md:mt-14 md:gap-4">
               <button
                 type="button"
                 onClick={prevTestimonials}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 md:h-11 md:w-11"
                 aria-label="Previous testimonials"
               >
                 ←
               </button>
 
-              <div className="grid flex-1 gap-6 lg:grid-cols-3">
+              <div className="hidden flex-1 gap-6 lg:grid lg:grid-cols-3">
                 {visibleTestimonials.map((testimonial, index) => {
                   const isCenter = index === 1;
 
@@ -772,17 +767,46 @@ export default function Home() {
                 })}
               </div>
 
+              <div className="flex-1 lg:hidden">
+                <div className="rounded-[24px] border border-[#d8e3ff] bg-white px-5 py-6 shadow-[0_20px_55px_rgba(49,91,255,0.10)] md:rounded-[28px] md:px-7 md:py-8">
+                  <div className="flex items-center justify-between">
+                    <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.22em]">
+                      Contractor review
+                    </div>
+                    <span className="rounded-full bg-[#eef3ff] px-3 py-1 text-xs font-medium text-[#315bff]">
+                      {testimonials[testimonialIndex].stat}
+                    </span>
+                  </div>
+
+                  <p
+                    className="mt-5 text-[22px] leading-[1.28] tracking-[-0.03em] text-slate-900 md:mt-6 md:text-[28px]"
+                    style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+                  >
+                    “{testimonials[testimonialIndex].quote}”
+                  </p>
+
+                  <div className="mt-6 border-t border-slate-100 pt-4 md:mt-8 md:pt-5">
+                    <p className="text-base font-semibold text-slate-900">
+                      {testimonials[testimonialIndex].name}
+                    </p>
+                    <p className="mt-1 text-sm text-slate-500">
+                      {testimonials[testimonialIndex].company}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <button
                 type="button"
                 onClick={nextTestimonials}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 md:h-11 md:w-11"
                 aria-label="Next testimonials"
               >
                 →
               </button>
             </div>
 
-            <div className="mt-8 flex items-center justify-center gap-2">
+            <div className="mt-6 flex items-center justify-center gap-2 md:mt-8">
               {testimonials.map((_, index) => {
                 const isActive = index === testimonialIndex;
                 return (
@@ -804,30 +828,30 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="contact" className="px-6 py-24 md:px-10">
+      <section id="contact" className="px-4 py-16 md:px-10 md:py-24">
         <Reveal>
-          <div className="mx-auto max-w-7xl rounded-[36px] bg-gradient-to-br from-[#0f2a6b] via-[#1f4aa8] to-[#315bff] px-10 py-16 text-white shadow-[0_30px_90px_rgba(49,91,255,0.22)]">
-            <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.9fr]">
-              <div className="max-w-2xl">
-                <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-white/65">
+          <div className="mx-auto max-w-7xl rounded-[28px] bg-gradient-to-br from-[#0f2a6b] via-[#1f4aa8] to-[#315bff] px-5 py-10 text-white shadow-[0_30px_90px_rgba(49,91,255,0.22)] md:rounded-[36px] md:px-10 md:py-16">
+            <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-12">
+              <div className="max-w-none lg:max-w-2xl">
+                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/65 md:text-[11px] md:tracking-[0.24em]">
                   Ready to see it in action?
                 </p>
                 <h2
-                  className="mt-4 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-white md:text-5xl"
+                  className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-white md:mt-4 md:text-5xl md:leading-[1.02]"
                   style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
                 >
                   Give your team a more
                   <br />
                   elegant way to offer financing
                 </h2>
-                <p className="mt-6 text-[17px] leading-8 text-white/78">
+                <p className="mt-5 text-[15px] leading-7 text-white/78 md:mt-6 md:text-[17px] md:leading-8">
                   We’ll show you how YSV fits into your sales process, what the
                   customer journey looks like, and how financing can help you
                   close more jobs without making the experience feel
                   complicated.
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
                   {["Fast walkthrough", "No pressure", "Contractor-focused"].map(
                     (item) => (
                       <div
@@ -841,7 +865,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="rounded-[30px] border border-white/15 bg-white/10 p-7 backdrop-blur">
+              <div className="rounded-[24px] border border-white/15 bg-white/10 p-5 backdrop-blur md:rounded-[30px] md:p-7">
                 <div className="grid gap-4">
                   <input
                     type="text"
@@ -876,29 +900,29 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <footer className="relative overflow-hidden bg-gradient-to-br from-[#050b1a] via-[#0b1f4a] to-[#1e3a8a] px-6 pb-8 pt-20 text-white md:px-10">
+      <footer className="relative overflow-hidden bg-gradient-to-br from-[#050b1a] via-[#0b1f4a] to-[#1e3a8a] px-4 pb-8 pt-14 text-white md:px-10 md:pt-20">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-0 top-0 h-[320px] w-[320px] bg-[#315bff]/25 blur-[120px]" />
           <div className="absolute bottom-0 right-0 h-[320px] w-[320px] bg-cyan-400/10 blur-[120px]" />
         </div>
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+          <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] md:gap-12 md:pb-12">
             <Reveal>
               <div>
                 <img
                   src="/ysv-logo-black.png"
                   alt="YSV Financial"
-                  className="h-14 w-auto"
+                  className="h-12 w-auto md:h-14"
                 />
 
-                <p className="mt-5 max-w-md text-base leading-7 text-white/75">
+                <p className="mt-4 max-w-md text-[15px] leading-7 text-white/75 md:mt-5 md:text-base">
                   Financing solutions built to help contractors close more
                   jobs, simplify the customer experience, and offer flexible
                   payment options with confidence.
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-5 flex flex-wrap gap-3 md:mt-6">
                   <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85 backdrop-blur transition hover:bg-white/10">
                     Fast Approvals
                   </div>
@@ -918,7 +942,7 @@ export default function Home() {
                   Navigation
                 </h3>
 
-                <div className="mt-5 flex flex-col gap-3 text-white/70">
+                <div className="mt-4 flex flex-col gap-3 text-white/70 md:mt-5">
                   <a href="#why" className="transition hover:translate-x-1 hover:text-white">
                     Why YSV
                   </a>
@@ -939,21 +963,21 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={160}>
-  <div>
-    <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/90">
-      Company
-    </h3>
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/90">
+                  Company
+                </h3>
 
-    <div className="mt-5 flex flex-col gap-3 text-white/70">
-      <a href="#" className="transition hover:translate-x-1 hover:text-white">
-        Privacy Policy
-      </a>
-      <a href="#" className="transition hover:translate-x-1 hover:text-white">
-        Terms of Use
-      </a>
-    </div>
-  </div>
-</Reveal>
+                <div className="mt-4 flex flex-col gap-3 text-white/70 md:mt-5">
+                  <a href="#" className="transition hover:translate-x-1 hover:text-white">
+                    Privacy Policy
+                  </a>
+                  <a href="#" className="transition hover:translate-x-1 hover:text-white">
+                    Terms of Use
+                  </a>
+                </div>
+              </div>
+            </Reveal>
 
             <Reveal delay={240}>
               <div>
@@ -961,7 +985,7 @@ export default function Home() {
                   Get In Touch
                 </h3>
 
-                <div className="mt-5 space-y-4 text-white/75">
+                <div className="mt-4 space-y-4 text-white/75 md:mt-5">
                   <p>
                     <span className="font-medium text-white">Email:</span>{" "}
                     hello@ysvfinancial.com
@@ -978,7 +1002,7 @@ export default function Home() {
 
                 <a
                   href="#contact"
-                  className="mt-6 inline-flex rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium text-white shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
+                  className="mt-5 inline-flex rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium text-white shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10 md:mt-6"
                 >
                   Book A Demo
                 </a>
