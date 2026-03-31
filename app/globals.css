@@ -125,3 +125,10 @@ body {
     transform: translateX(-50%);
   }
 }
+
+.how-card:focus-within,
+.how-card:active {
+  transform: translateY(-4px);
+  border-color: #bfd0ff;
+  box-shadow: 0 26px 70px rgba(49, 91, 255, 0.12);
+}
