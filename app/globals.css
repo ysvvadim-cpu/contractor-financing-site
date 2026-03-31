@@ -132,3 +132,26 @@ body {
   border-color: #bfd0ff;
   box-shadow: 0 26px 70px rgba(49, 91, 255, 0.12);
 }
+
+.hero-heartbeat-fast {
+  animation: heroHeartbeatFast 0.9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes heroHeartbeatFast {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.06);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.09);
+  }
+  70% {
+    transform: scale(1);
+  }
+}

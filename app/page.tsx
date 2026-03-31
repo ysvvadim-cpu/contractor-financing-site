@@ -180,40 +180,53 @@ export default function Home() {
       </header>
 
       <section className="relative overflow-hidden">
-        <img
-          src="/demo-hero.png"
-          className="absolute inset-0 h-full w-full object-cover scale-105 blur-[1px]"
-          alt="YSV hero"
-        />
+  {/* BACKGROUND IMAGE */}
+  <img
+    src="/demo-hero.png"
+    alt="YSV Financial hero"
+    className="absolute inset-0 h-full w-full object-cover object-[70%_center] scale-105 brightness-[0.85]"
+  />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/10" />
 
-        <Reveal>
-          <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 text-white md:py-32">
-            <p className="mb-3 text-sm uppercase tracking-widest text-white/70">
-              BUILT FOR CONTRACTORS & HOME SERVICES
-            </p>
+  {/* CONTENT */}
+  <Reveal>
+    <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 text-white md:py-32">
+      <div className="max-w-[800px]">
+        {/* SMALL TOP TEXT */}
+        <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-white/72">
+          Built for contractors & home services
+        </p>
 
-            <h1 className="max-w-2xl text-5xl font-semibold leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] md:text-6xl">
-              The Fastest, No-Fee
-              <br />
-              Home Improvement Financing Platform
-            </h1>
+        {/* HEADLINE */}
+        <h1
+          className="text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] md:text-7xl"
+          style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+        >
+          More Jobs @ Higher Prices
+          <br />
+          Home Improvement Financing
+        </h1>
 
-            <p className="mt-6 max-w-2xl text-lg text-white/80">
-              Close more sales with instant approvals and zero dealer fees.
-            </p>
+        {/* SUBTEXT */}
+        <p className="mt-7 max-w-[520px] text-[18px] leading-8 text-white/82 md:text-[19px]">
+          Close more sales with instant approvals, cleaner handoffs, and zero
+          dealer fees.
+        </p>
 
-            <div className="mt-8">
-              <a
-                href="#contact"
-                className="hero-heartbeat-fast inline-flex items-center rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:scale-[1.03]"
-              >
-                Get Started →
-              </a>
-            </div>
-          </div>
-        </Reveal>
+        {/* BUTTON */}
+        <div className="mt-9">
+          <a
+            href="#contact"
+            className="hero-heartbeat-fast inline-flex items-center rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-7 py-3.5 text-base font-semibold text-white shadow-[0_20px_60px_rgba(49,91,255,0.45)] transition hover:scale-[1.05]"
+          >
+            Get Started →
+          </a>
+        </div>
+      </div>
+    </div>
+  </Reveal>
 
         <div className="relative z-20 overflow-hidden bg-[#DAA06D] py-5">
           <div className="marquee-track flex w-max items-center">
