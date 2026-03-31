@@ -196,13 +196,13 @@ export default function Home() {
               </p>
 
               <h1
-                className="text-[34px] font-medium leading-[0.98] tracking-[-0.05em] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] sm:text-[42px] md:text-7xl"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                More Jobs @ Higher Prices
-                <br />
-                Home Improvement Financing
-              </h1>
+  className="text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] md:text-7xl"
+  style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+>
+  More Jobs @ Higher&nbsp;Prices
+  <br />
+  Home Improvement Financing
+</h1>
 
               <p className="mt-5 max-w-[320px] text-[15px] leading-7 text-white/82 sm:max-w-[420px] sm:text-[17px] md:mt-7 md:max-w-[520px] md:text-[19px] md:leading-8">
                 Close more sales with instant approvals, cleaner handoffs, and zero
