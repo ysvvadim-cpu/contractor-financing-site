@@ -1,1024 +1,869 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 
-function Reveal({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+import { useMemo, useState } from "react";
+import {
+  ArrowRight,
+  BarChart3,
+  BriefcaseBusiness,
+  Building2,
+  CheckCircle2,
+  ChevronRight,
+  CircleDollarSign,
+  Compass,
+  Handshake,
+  LineChart,
+  Menu,
+  PhoneCall,
+  ShieldCheck,
+  TrendingUp,
+  Users2,
+  X,
+} from "lucide-react";
+import "./consulting.css";
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+type Service = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  shortTitle: string;
+  intro: string;
+  bullets: string[];
+  pain: string[];
+  solution: string[];
+  proof: string[];
+  promise: string;
+  plan: string[];
+};
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px",
-      },
-    );
+const services: Service[] = [
+  {
+    id: "capital",
+    eyebrow: "Capital Strategy",
+    title: "Capital Strategy & Financing Guidance",
+    shortTitle: "Capital",
+    intro:
+      "Choose the right capital for the actual stage of your business — not whatever product is easiest to get approved.",
+    bullets: [
+      "Line of credit strategy",
+      "Bridge loan planning",
+      "SBA loan support and application guidance",
+      "Equipment financing",
+      "Traditional loan positioning",
+      "Merchant cash advance risk analysis",
+    ],
+    pain: [
+      "Many owners take expensive capital because they need speed, then pay for it long after the immediate problem is gone.",
+      "Others delay borrowing until growth is already constrained, which limits hiring, marketing, inventory, and expansion.",
+      "The real issue is usually not just access to capital — it is matching the right capital to the right objective.",
+    ],
+    solution: [
+      "We help you evaluate your use of funds, timing, repayment pressure, and operating margin before making the decision.",
+      "Then we help you identify which capital structure makes sense for your situation: short-term flexibility, long-term growth, working capital protection, or strategic expansion.",
+      "The goal is not just approval. The goal is using capital in a way that strengthens the business.",
+    ],
+    proof: [
+      "We have supported hundreds of business owners through capital and growth decisions across changing markets.",
+      "Our finance background allows us to evaluate options with a real business lens — not just product sales language.",
+      "We work with businesses that need practical support, not generic lending theory.",
+    ],
+    promise:
+      "We help you avoid bad money, identify the right capital path, and use financing in a way that supports profitable growth.",
+    plan: [
+      "Review business position, margins, and objective",
+      "Assess urgency, repayment tolerance, and timing",
+      "Map appropriate capital options",
+      "Support decision and application direction",
+      "Tie funding back to measurable business outcomes",
+    ],
+  },
+  {
+    id: "hiring",
+    eyebrow: "Hiring Strategy",
+    title: "Strategic Hiring Decisions",
+    shortTitle: "Hiring",
+    intro:
+      "Know who to hire, when to hire, and when holding off will protect the business more than rushing payroll.",
+    bullets: [
+      "Role timing analysis",
+      "Priority role identification",
+      "Leadership vs support hire planning",
+      "Capacity bottleneck review",
+      "Payroll risk analysis",
+      "Expansion staffing planning",
+    ],
+    pain: [
+      "Hiring too early can choke cash flow. Hiring too late can choke growth.",
+      "Most owners feel the pressure but do not have a structured way to decide which role will create the highest impact right now.",
+      "As a result, payroll grows without solving the real bottleneck.",
+    ],
+    solution: [
+      "We identify where growth is being restricted and determine whether the next best move is operations support, sales support, leadership, recruiting, field capacity, or no hire at all.",
+      "We look at margin, workload, sales demand, and owner dependency before making recommendations.",
+      "This turns hiring from guesswork into an intentional growth decision.",
+    ],
+    proof: [
+      "We have guided home service businesses through hiring decisions tied directly to revenue, capacity, and operating efficiency.",
+      "We focus on whether a role actually improves throughput, closes leaks, or supports scale.",
+      "Every recommendation is tied back to what the business needs now — not what sounds impressive on paper.",
+    ],
+    promise:
+      "We help you avoid unnecessary payroll drag while making the hires that actually unlock revenue and execution.",
+    plan: [
+      "Identify present bottlenecks",
+      "Measure owner dependency and team strain",
+      "Evaluate role impact vs payroll risk",
+      "Prioritize next hire or recommend pause",
+      "Build a simple hiring roadmap",
+    ],
+  },
+  {
+    id: "sales-marketing",
+    eyebrow: "Sales & Marketing",
+    title: "Sales & Marketing Optimization",
+    shortTitle: "Sales & Marketing",
+    intro:
+      "Stop wasting money on weak offers, soft sales processes, and marketing spend that does not convert profitably.",
+    bullets: [
+      "Sales process review",
+      "Offer positioning",
+      "Marketing efficiency analysis",
+      "Lead quality review",
+      "Follow-up structure",
+      "Conversion leak identification",
+    ],
+    pain: [
+      "Many businesses have revenue coming in, but the system behind it is inefficient.",
+      "Leads get mishandled. Offers are weak. Follow-up is inconsistent. Marketing spend grows while profitability stays flat.",
+      "The issue is often not effort. It is the lack of a clean system.",
+    ],
+    solution: [
+      "We review how leads are generated, how they are handled, how your offer is positioned, and where your conversion process loses money.",
+      "Then we help you improve the mechanics: messaging, follow-up, offer strength, process clarity, and efficiency.",
+      "The objective is a system that converts more of the right business without waste.",
+    ],
+    proof: [
+      "We work with owners who need more than motivational sales talk — they need operationally sound revenue systems.",
+      "Our approach is tied to efficiency, margin, and process discipline.",
+      "We focus on what actually improves conversion and what should be cut.",
+    ],
+    promise:
+      "We help you build a revenue engine that is cleaner, more efficient, and more profitable.",
+    plan: [
+      "Audit marketing and conversion flow",
+      "Identify spending waste and sales leaks",
+      "Refine offer and positioning",
+      "Improve follow-up and process discipline",
+      "Track improvements against real business goals",
+    ],
+  },
+  {
+    id: "expansion",
+    eyebrow: "Expansion Strategy",
+    title: "Expansion & New Location Strategy",
+    shortTitle: "Expansion",
+    intro:
+      "Expand only when the economics, capacity, and timing actually support it — not because growth feels exciting.",
+    bullets: [
+      "New location decision support",
+      "Expansion readiness analysis",
+      "Cash flow and risk planning",
+      "Market expansion evaluation",
+      "Operational strain review",
+      "Growth sequencing decisions",
+    ],
+    pain: [
+      "Opening another location too early can create expensive complexity instead of real growth.",
+      "Many businesses scale top-line revenue while operational quality, leadership depth, and cash discipline get weaker.",
+      "Expansion is often treated as proof of success when it should be treated as an investment decision.",
+    ],
+    solution: [
+      "We help you determine whether expansion makes sense now, later, or not at all.",
+      "That includes reviewing margin strength, leadership readiness, process maturity, demand, and capital requirements.",
+      "If the answer is yes, we help you think through the sequence and structure.",
+    ],
+    proof: [
+      "We support owners making real-world growth decisions where the downside of a bad move is significant.",
+      "Our role is to bring discipline, clarity, and financial perspective to expansion.",
+      "We help you separate ambition from readiness.",
+    ],
+    promise:
+      "We help you expand with discipline — or avoid expansion mistakes that would cost you far more than waiting.",
+    plan: [
+      "Assess current business strength",
+      "Evaluate operational and financial readiness",
+      "Pressure-test expansion assumptions",
+      "Model risk, timing, and structure",
+      "Build an expansion decision roadmap",
+    ],
+  },
+  {
+    id: "partnerships",
+    eyebrow: "Strategic Decisions",
+    title: "Partnerships & Major Business Decisions",
+    shortTitle: "Partnerships",
+    intro:
+      "When the decision is important, expensive, or hard to reverse, you need clear judgment — not guesswork.",
+    bullets: [
+      "Partnership evaluation",
+      "Major decision support",
+      "Strategic trade-off analysis",
+      "Risk review",
+      "Growth opportunity vetting",
+      "Decision framing",
+    ],
+    pain: [
+      "Partnerships, vendor relationships, and big strategic moves can accelerate a business — or quietly damage it.",
+      "Owners often make these calls under pressure, with incomplete structure, or based too heavily on emotion and urgency.",
+      "That creates misalignment, hidden risk, and long cleanup cycles.",
+    ],
+    solution: [
+      "We help you slow the decision down enough to evaluate it properly.",
+      "That means reviewing upside, downside, incentives, long-term fit, financial consequences, and execution risk.",
+      "The right decision is not always the most exciting one. It is the one that strengthens the business.",
+    ],
+    proof: [
+      "We have spent years helping businesses think through consequential decisions with financial and strategic discipline.",
+      "We are not here to impress you with jargon — we are here to help you make stronger calls.",
+      "That is often where the biggest value shows up.",
+    ],
+    promise:
+      "We help you make major decisions with structure, clarity, and confidence.",
+    plan: [
+      "Define the actual decision clearly",
+      "Map upside, downside, and risk",
+      "Evaluate fit with business goals",
+      "Pressure-test assumptions",
+      "Move forward with a cleaner decision framework",
+    ],
+  },
+];
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+const proofStats = [
+  { value: "740+", label: "Active clients" },
+  { value: "95%", label: "Client retention" },
+  { value: "10+", label: "Years of experience" },
+  { value: "6 Months", label: "Pay-for-itself promise" },
+];
+
+const navigation = [
+  { id: "services", label: "Services" },
+  { id: "results", label: "Results" },
+  { id: "process", label: "Process" },
+  { id: "about", label: "About" },
+  { id: "consultation", label: "Free Consultation" },
+];
+
+export default function ContractorConsultingPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const serviceCards = useMemo(() => services, []);
 
   return (
-    <div
-      ref={ref}
-      className={`reveal-block ${visible ? "is-visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
+    <div className="consulting-site">
+      <header className="site-header" id="top">
+        <div className="container nav-shell">
+          <a href="#top" className="brand-mark" aria-label="Home">
+            <img src="/ysv-logo-black.png" alt="YSV Consulting" />
+          </a>
 
-export default function Home() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+          <nav className="desktop-nav" aria-label="Primary">
+            {navigation.map((item) => (
+              <a key={item.id} href={`#${item.id}`} className="nav-link">
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
+          <div className="nav-actions">
+            <a href="#consultation" className="btn btn-gold">
+              Free Consultation
+            </a>
 
-  const testimonials = [
-    {
-      name: "Jason Miller",
-      company: "American Pools & Spas",
-      quote:
-        "Offering financing changed the conversation for our sales team. Instead of losing customers at the price point, we could immediately shift them into affordable monthly options.",
-      stat: "More approvals",
-    },
-    {
-      name: "Maria Lopez",
-      company: "Premier Roofing Group",
-      quote:
-        "The process feels simple enough to use in the home and fast enough that it does not slow down the close. That made adoption easy for our reps.",
-      stat: "Faster close rate",
-    },
-    {
-      name: "David Chen",
-      company: "Elite Home Solutions",
-      quote:
-        "What stood out most was visibility. Our team can see exactly where a customer is in the process instead of wondering whether they applied or got approved.",
-      stat: "Better tracking",
-    },
-    {
-      name: "Chris Walker",
-      company: "Sunrise HVAC",
-      quote:
-        "We started using financing more consistently because the handoff was easier. QR, text, and follow-up all fit naturally into how our sales process already works.",
-      stat: "Higher usage",
-    },
-    {
-      name: "Nicole Grant",
-      company: "BlueLine Remodeling",
-      quote:
-        "Customers appreciate seeing options immediately. It lowers pressure in the sale and makes larger projects feel much more manageable.",
-      stat: "Bigger projects",
-    },
-    {
-      name: "Ethan Brooks",
-      company: "Precision Exterior Co.",
-      quote:
-        "The biggest win is confidence. Reps know they can bring up financing without making the process awkward, which means it gets offered more often.",
-      stat: "More offered financing",
-    },
-  ];
-
-  const nextTestimonials = () => {
-    setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonials = () => {
-    setTestimonialIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
-    );
-  };
-
-  const visibleTestimonials = [
-    testimonials[testimonialIndex % testimonials.length],
-    testimonials[(testimonialIndex + 1) % testimonials.length],
-    testimonials[(testimonialIndex + 2) % testimonials.length],
-  ];
-
-  return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
-        <div className="mx-auto max-w-7xl bg-white">
-          <div className="flex items-center justify-between px-4 py-3 md:px-6">
-            <div className="flex items-center">
-              <img
-                src="/ysv-logo-blue.png?v=5"
-                alt="YSV Financial"
-                className="h-8 w-auto object-contain transition duration-300 hover:scale-105 md:h-10"
-              />
-            </div>
-
-            <div className="ml-auto flex items-center gap-3 md:gap-10">
-              <nav className="hidden items-center gap-7 lg:flex">
-                <a
-                  href="#why"
-                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
-                >
-                  Why YSV
-                </a>
-                <a
-                  href="#how"
-                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
-                >
-                  How It Works
-                </a>
-                <a
-                  href="#clarity"
-                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
-                >
-                  Features
-                </a>
-                <a
-                  href="#testimonials"
-                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
-                >
-                  Testimonials
-                </a>
-                <a
-                  href="#contact"
-                  className="text-medium font-medium font-serif text-slate-900 transition hover:-translate-y-0.5 hover:text-black"
-                >
-                  Contact
-                </a>
-              </nav>
-
-              <div className="flex items-center gap-2 md:gap-3">
-                <a
-                  href="#contact"
-                  className="header-signup rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-3 py-2 text-[11px] font-black uppercase tracking-wide text-white shadow-[0_12px_30px_rgba(49,91,255,0.22)] transition duration-300 hover:scale-[1.04] hover:shadow-[0_16px_40px_rgba(49,91,255,0.30)] md:px-5 md:py-2.5 md:text-sm"
-                >
-                  Sign Up
-                </a>
-                <a
-                  href="#contact"
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-[11px] font-black uppercase tracking-wide text-slate-800 transition duration-300 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 md:px-5 md:py-2.5 md:text-sm"
-                >
-                  Login
-                </a>
-              </div>
-            </div>
+            <button
+              className="mobile-menu-button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
-      </header>
 
-      <section className="relative overflow-hidden">
-        <img
-          src="/demo-hero.png"
-          alt="YSV Financial hero"
-          className="absolute inset-0 h-full w-full object-cover object-[82%_center] scale-105 brightness-[0.72] md:object-[70%_center] md:brightness-[0.85]"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/15 md:from-black/80 md:via-black/60 md:to-black/10" />
-
-        <Reveal>
-          <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 text-white md:px-6 md:py-32">
-            <div className="max-w-[340px] sm:max-w-[460px] md:max-w-[800px]">
-              <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.2em] text-white/72 md:mb-4 md:text-[11px] md:tracking-[0.24em]">
-                Built for contractors & home services
-              </p>
-
-              <h1
-  className="text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] md:text-7xl"
-  style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
->
-  Win More Jobs,
-  <br />
-   <span className="text-[#DAA06D]">
-    Without More Estimates
-  </span>
-</h1>
-
-              <p className="mt-5 max-w-[320px] text-[15px] leading-7 text-white/82 sm:max-w-[420px] sm:text-[17px] md:mt-7 md:max-w-[520px] md:text-[19px] md:leading-8">
-                Close more sales with instant approvals, cleaner handoffs, and zero
-                dealer fees.
-              </p>
-
-              <div className="mt-7 md:mt-9">
-                <a
-                  href="#contact"
-                  className="hero-heartbeat-fast inline-flex items-center rounded-xl bg-gradient-to-r from-[#315bff] to-[#5f7cff] px-6 py-3 text-sm font-semibold text-white shadow-[0_20px_60px_rgba(49,91,255,0.45)] transition hover:scale-[1.05] md:px-7 md:py-3.5 md:text-base"
-                >
-                  Get Started →
-                </a>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-
-        <div className="relative z-20 overflow-hidden bg-[#DAA06D] py-3 md:py-5">
-          <div className="marquee-track flex w-max items-center">
-            {[
-              "Roofing",
-              "HVAC",
-              "Plumbing",
-              "Electrical",
-              "Windows & Doors",
-              "Kitchen & Bath",
-              "Flooring",
-              "Painting",
-              "Pools & Spas",
-              "Solar",
-              "Home Services",
-              "General Contractors",
-              "Roofing",
-              "HVAC",
-              "Plumbing",
-              "Electrical",
-              "Windows & Doors",
-              "Kitchen & Bath",
-              "Flooring",
-              "Painting",
-              "Pools & Spas",
-              "Solar",
-              "Home Services",
-              "General Contractors",
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="mx-4 flex items-center gap-4 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 md:mx-5 md:gap-5 md:text-sm md:tracking-[0.16em]"
+        {mobileMenuOpen && (
+          <div className="mobile-menu">
+            {navigation.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="mobile-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
               >
-                <span>{item}</span>
-                <span className="text-white/30">•</span>
-              </div>
+                {item.label}
+              </a>
             ))}
           </div>
-        </div>
-      </section>
+        )}
+      </header>
 
-      <section className="bg-white px-4 py-16 md:px-10 md:py-20">
-        <Reveal>
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-4xl text-center">
-              <p className="text-[15px] leading-7 text-slate-500 md:text-[18px] md:leading-8">
-                More approvals. More closed jobs. No dealer fees. YSV gives
-                contractors a faster, simpler way to offer financing—helping
-                homeowners move forward while you grow your business.
+      <main>
+        <section className="hero-section">
+          <div className="hero-overlay" />
+          <div className="container hero-grid">
+            <div className="hero-copy">
+              <p className="eyebrow">Consulting for Home Service Business Owners</p>
+              <h1>
+                Find the leaks. Fix the decisions. Build a stronger business.
+              </h1>
+              <p className="hero-lead">
+                We help home service businesses uncover money leaks, identify revenue
+                opportunities, make smarter hiring decisions, evaluate expansion, and
+                improve the systems behind profitable growth.
               </p>
-            </div>
 
-            <div className="mt-10 grid gap-8 sm:grid-cols-2 md:mt-14 md:gap-8 lg:grid-cols-4">
-              {[
-                {
-                  title: "Fast Credit Decisions",
-                  desc: "Help customers view financing options quickly so more estimates turn into signed contracts.",
-                  icon: (
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-8 w-8 md:h-9 md:w-9"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="M21 21l-4.3-4.3" />
-                      <path d="M11 8.5v5" />
-                      <path d="M8.8 10.8c0-1.2 1-2.1 2.2-2.1 1.1 0 2 .7 2.1 1.7" />
-                      <path d="M9.2 13.8c.3.8 1 1.3 1.8 1.3 1.1 0 2-.8 2.1-1.8" />
-                    </svg>
-                  ),
-                },
-                {
-                  title: "No Dealer Fees",
-                  desc: "Keep more of every contract without sacrificing a clean financing experience for the homeowner.",
-                  icon: (
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-8 w-8 md:h-9 md:w-9"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M12 3v18" />
-                      <path d="M16 7.5c0-1.7-1.8-3-4-3s-4 1.3-4 3 1.5 2.4 4 3 4 1.3 4 3-1.8 3-4 3-4-1.3-4-3" />
-                      <path d="M18.5 5.5l2 2 2-2" />
-                      <path d="M20.5 7.5v-4" />
-                    </svg>
-                  ),
-                },
-
-                {
-                  title: "Flexible Terms",
-                  desc: "Offer financing structures that make larger projects feel manageable for more homeowners.",
-                  icon: (
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-8 w-8 md:h-9 md:w-9"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect x="5" y="3.5" width="14" height="17" rx="2.5" />
-                      <circle cx="12" cy="12" r="2.4" />
-                      <path d="M12 9.2v5.6" />
-                      <path d="M9.8 10.6c0-.9 1-1.6 2.2-1.6s2.2.7 2.2 1.6" />
-                      <path d="M10 13.5c.2.8 1 1.3 2 1.3 1.1 0 1.9-.6 2.1-1.4" />
-                    </svg>
-                  ),
-                },
-                {
-                  title: "Simple Process",
-                  desc: "Use QR, text, or direct link handoff so financing feels easy to introduce during the sale.",
-                  icon: (
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-8 w-8 md:h-9 md:w-9"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect x="7" y="2.5" width="10" height="19" rx="2.4" />
-                      <path d="M10 6.5h4" />
-                      <path d="M12 18.5h.01" />
-                      <path d="M4 8.5h2.5" />
-                      <path d="M4 12h2.5" />
-                      <path d="M4 15.5h2.5" />
-                    </svg>
-                  ),
-                },
-              ].map((item, i) => (
-                <div key={i} className="relative px-2 text-center md:px-5">
-                  {i !== 3 && (
-                    <div className="absolute right-0 top-3 hidden h-[140px] w-px bg-slate-200 lg:block" />
-                  )}
-
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#d8e3ff] bg-[#f8fbff] text-[#315bff] md:h-14 md:w-14">
-                    {item.icon}
-                  </div>
-
-                  <h3 className="mt-4 text-[21px] font-medium tracking-[-0.03em] text-slate-900 md:mt-5 md:text-[24px]">
-                    {item.title}
-                  </h3>
-
-                  <p className="mx-auto mt-3 max-w-[260px] text-[14px] leading-6 text-slate-500 md:mt-4 md:max-w-[240px] md:text-[15px] md:leading-7">
-                    {item.desc}
-                  </p>
+              <div className="hero-proof-row">
+                <div className="proof-pill">
+                  <ShieldCheck size={16} />
+                  <span>740+ active clients</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <section id="why" className="bg-[#fcfcfd] px-4 py-16 md:px-10 md:py-24">
-        <Reveal>
-          <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-12">
-              <div className="col-span-1 overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.08)] md:col-span-6 md:rounded-[28px]">
-                <img
-                  src="ooo.png"
-                  alt="Contractor speaking with homeowner"
-                  className="h-[180px] w-full object-cover md:h-[320px]"
-                />
-              </div>
-
-              <div className="col-span-1 overflow-hidden rounded-[24px] shadow-[0_18px_50px_rgba(15,23,42,0.08)] md:col-span-6 md:rounded-[28px]">
-                <img
-                  src="bbb.png"
-                  alt="Business consultation"
-                  className="h-[180px] w-full object-cover md:h-[320px]"
-                />
-              </div>
-
-              <div className="col-span-2 flex items-center rounded-[22px] border border-slate-200 bg-white px-5 py-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:col-span-8 md:col-start-5 md:rounded-[24px] md:px-8 md:py-7">
-                <div>
-                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
-                    Why contractors choose us
-                  </p>
-                  <h2
-                    className="mt-3 text-[30px] font-medium leading-[1.04] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.02]"
-                    style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-                  >
-                    Financing that helps
-                    <br />
-                    you close with confidence
-                  </h2>
+                <div className="proof-pill">
+                  <TrendingUp size={16} />
+                  <span>95% client retention</span>
+                </div>
+                <div className="proof-pill">
+                  <BriefcaseBusiness size={16} />
+                  <span>10+ years experience</span>
                 </div>
               </div>
-            </div>
 
-            <div className="max-w-none lg:max-w-xl">
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
-                Built for real sales conversations
-              </p>
-
-              <h3
-                className="mt-3 text-[30px] font-medium leading-[1.06] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.04]"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                Better financing
-                <br />
-                without adding friction
-              </h3>
-
-              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
-                YSV helps contractors offer monthly payment options in a way
-                that feels simple, professional, and natural during the sale.
-                No clunky handoff. No awkward financing moment. Just a faster
-                way to help more homeowners move forward.
-              </p>
-
-              <div className="mt-7 space-y-4 md:mt-8">
-                {[
-                  "No dealer fees that eat into margins",
-                  "Fast approvals that keep momentum alive",
-                  "Simple handoff by QR code, text, or direct link",
-                  "Clear visibility from application to funding",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#e8efff] text-[#315bff]">
-                      ✓
-                    </div>
-                    <p className="text-[14px] leading-6 text-slate-600 md:text-[15px] md:leading-7">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 md:mt-9">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium tracking-[0.04em] text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-400 md:px-6"
-                >
-                  Learn More
+              <div className="hero-actions">
+                <a href="#consultation" className="btn btn-gold btn-lg">
+                  Free Consultation
+                </a>
+                <a href="#services" className="btn btn-dark btn-lg">
+                  Explore Services
+                  <ArrowRight size={16} />
                 </a>
               </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
 
-      <section className="px-4 py-8 md:px-10 md:py-10">
-        <Reveal>
-          <div className="mx-auto max-w-7xl rounded-[20px] border border-slate-200 bg-[#f8faff] px-5 py-5 shadow-[0_14px_35px_rgba(15,23,42,0.04)] md:rounded-[24px] md:px-8 md:py-6">
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.22em]">
-                  A better reminder
-                </p>
-                <p className="mt-2 text-[15px] leading-6 text-slate-700 md:text-[16px] md:leading-7">
-                  Homeowners don’t usually say no to the project — they say no
-                  to the upfront cost.
-                </p>
-              </div>
-
-              <a
-                href="#contact"
-                className="inline-flex w-full items-center justify-center rounded-full bg-[#315bff] px-5 py-3 text-sm font-medium text-white transition hover:scale-[1.02] md:w-fit"
-              >
-                Talk to our team
-              </a>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <section id="how" className="bg-white px-4 py-16 md:px-10 md:py-24">
-        <Reveal>
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
-                How it works
-              </p>
-              <h2
-                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.02]"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                A simple flow your team
-                <br />
-                can actually use
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
-                The process is built to fit naturally into real-world sales
-                conversations, whether you’re in the home, on the phone, or
-                following up after an estimate.
+              <p className="hero-guarantee">
+                If our cost is not offset by the results we help create within the first
+                6 months, we work with you for the next 6 months for free.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 md:mt-16 lg:grid-cols-3 lg:gap-6">
-              {[
-                {
-                  step: "01",
-                  title: "Offer financing during the sale",
-                  text: "Send a text link, share a QR code, or walk the homeowner through the application in real time.",
-                  image: "/sms.png",
-                },
-                {
-                  step: "02",
-                  title: "Customer reviews payment options",
-                  text: "Homeowners pre-qualify and see options quickly, helping them focus on what they can afford each month.",
-                  image: "/lll.png",
-                },
-                {
-                  step: "03",
-                  title: "Project moves forward faster",
-                  text: "Once the customer selects an option, your team has better visibility and the deal keeps moving.",
-                  image: "/sss.png",
-                },
-              ].map((item) => (
-                <div
-                  key={item.step}
-                  className="how-card group overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#bfd0ff] hover:shadow-[0_26px_70px_rgba(49,91,255,0.12)] md:rounded-[28px]"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-[180px] w-full object-cover transition duration-500 group-hover:scale-[1.03] md:h-[220px]"
-                  />
-                  <div className="px-5 py-6 md:px-7 md:py-7">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-[#315bff] md:text-[11px] md:tracking-[0.2em]">
-                      Step {item.step}
-                    </p>
-                    <h3 className="mt-3 text-[22px] font-medium leading-[1.15] tracking-[-0.03em] text-slate-900 transition-colors duration-300 group-hover:text-[#1f4aa8] md:text-[24px]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-4 text-[14px] leading-6 text-slate-500 md:text-[15px] md:leading-7">
-                      {item.text}
-                    </p>
+            <div className="hero-card-shell">
+              <div className="hero-card hero-card-main">
+                <div className="hero-card-header">
+                  <span className="card-kicker">Strategic Growth Review</span>
+                  <span className="card-status">Certified Finance Professionals</span>
+                </div>
+
+                <h3>What we help uncover</h3>
+
+                <div className="hero-card-list">
+                  <div className="hero-card-item">
+                    <CircleDollarSign size={18} />
+                    <div>
+                      <strong>Money leaks</strong>
+                      <p>Margin pressure, waste, and poor capital decisions</p>
+                    </div>
+                  </div>
+
+                  <div className="hero-card-item">
+                    <Users2 size={18} />
+                    <div>
+                      <strong>Hiring timing</strong>
+                      <p>Which role matters now — and which can wait</p>
+                    </div>
+                  </div>
+
+                  <div className="hero-card-item">
+                    <LineChart size={18} />
+                    <div>
+                      <strong>Revenue opportunities</strong>
+                      <p>Sales, process, offer, and marketing inefficiencies</p>
+                    </div>
+                  </div>
+
+                  <div className="hero-card-item">
+                    <Compass size={18} />
+                    <div>
+                      <strong>Expansion readiness</strong>
+                      <p>Whether growth actually makes sense before you commit</p>
+                    </div>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="hero-stat-card hero-stat-card-left">
+                <span className="hero-stat-value">6 Months</span>
+                <span className="hero-stat-label">Pay-for-itself promise</span>
+              </div>
+
+              <div className="hero-stat-card hero-stat-card-right">
+                <span className="hero-stat-value">95%</span>
+                <span className="hero-stat-label">Client retention</span>
+              </div>
             </div>
           </div>
-        </Reveal>
-      </section>
+        </section>
 
-      <section
-        id="clarity"
-        className="bg-[#fafbff] px-4 py-16 md:px-10 md:py-24"
-      >
-        <Reveal>
-          <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
-            <div className="overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(15,23,42,0.08)] md:rounded-[32px]">
+        <section className="image-band-section">
+          <div className="container image-band-grid">
+            <div className="image-panel image-panel-large">
               <img
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1400&auto=format&fit=crop"
-                alt="People in business conversation"
-                className="h-[260px] w-full object-cover md:h-[520px]"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+                alt="Consulting meeting with business owner"
               />
             </div>
-
-            <div className="max-w-none lg:max-w-xl">
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
-                Feature spotlight
-              </p>
-              <h3
-                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.03]"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                More clarity
-                <br />
-                for your team
-              </h3>
-              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
-                Financing only helps if your reps can actually follow what’s
-                happening. YSV is designed to give your team a cleaner view of
-                where each homeowner is in the process, so follow-up becomes
-                easier and nothing gets lost.
-              </p>
-
-              <div className="mt-7 grid gap-3 md:mt-8 md:gap-4">
-                {[
-                  "Track where customers are in the flow",
-                  "Know when an application has been started",
-                  "See when options are ready to review",
-                  "Reduce guesswork in post-estimate follow-up",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[18px] border border-slate-200 bg-white px-4 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.04)] md:rounded-[20px] md:px-5"
-                  >
-                    <p className="text-[14px] leading-6 text-slate-700 md:text-[15px] md:leading-7">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <section className="bg-white px-4 py-16 md:px-10 md:py-24">
-        <Reveal>
-          <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-16">
-            <div className="max-w-none lg:max-w-xl">
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
-                Designed for modern contractors
-              </p>
-              <h3
-                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.03]"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                A financing experience
-                <br />
-                that feels on-brand
-              </h3>
-              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
-                Homeowners are more likely to move forward when the payment
-                conversation feels clean, simple, and credible. Present
-                financing in a way that feels like part of a premium sales
-                experience — not a last-minute add-on.
-              </p>
-
-              <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
-                {[
-                  "Better presentation",
-                  "Lower friction",
-                  "Cleaner handoff",
-                  "More homeowner confidence",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="overflow-hidden rounded-[22px] shadow-[0_18px_50px_rgba(15,23,42,0.07)] md:rounded-[24px]">
+            <div className="image-panel-stack">
+              <div className="image-panel">
                 <img
-                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop"
-                  alt="Contractor and customer"
-                  className="h-[210px] w-full object-cover md:h-[240px]"
+                  src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80"
+                  alt="Business advisor reviewing numbers"
                 />
               </div>
-              <div className="hidden overflow-hidden rounded-[22px] shadow-[0_18px_50px_rgba(15,23,42,0.07)] sm:block md:rounded-[24px]">
+              <div className="image-panel">
                 <img
-                  src="/xxx.png"
-                  alt="People reviewing plans"
-                  className="h-[210px] w-full object-cover md:h-[240px]"
-                />
-              </div>
-              <div className="overflow-hidden rounded-[24px] shadow-[0_22px_55px_rgba(15,23,42,0.08)] sm:col-span-2 md:rounded-[28px]">
-                <img
-                  src="/zzz.png"
-                  alt="Customer decision moment"
-                  className="h-[220px] w-full object-cover md:h-[260px]"
+                  src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80"
+                  alt="Professional team strategy session"
                 />
               </div>
             </div>
           </div>
-        </Reveal>
-      </section>
+        </section>
 
-      <section id="testimonials" className="bg-[#fcfcfd] px-4 py-16 md:px-10 md:py-24">
-        <Reveal>
-          <div className="mx-auto max-w-7xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.24em]">
-                Testimonials
-              </p>
-              <h2
-                className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-slate-900 md:mt-4 md:text-5xl md:leading-[1.02]"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                What contractors are saying
-              </h2>
-              <p className="mt-5 text-[15px] leading-7 text-slate-500 md:mt-6 md:text-[17px] md:leading-8">
-                Real feedback from teams using financing to present options more
-                clearly, close more confidently, and create a smoother customer
-                experience.
+        <section className="section section-problem">
+          <div className="container narrow">
+            <p className="section-kicker">Why owners bring us in</p>
+            <h2>Most home service businesses are not short on effort. They are short on clarity.</h2>
+            <p className="section-intro">
+              Revenue can hide problems for a while. A business can be busy, growing, and still
+              leaking money through weak decisions, inefficient systems, poor timing, and expansion
+              moves that are not supported by the economics underneath them.
+            </p>
+
+            <div className="problem-grid">
+              <div className="problem-card">
+                <h3>Money is leaking quietly</h3>
+                <p>
+                  Marketing spend, payroll timing, financing costs, pricing structure, and process
+                  inefficiencies all add pressure even when top-line revenue looks healthy.
+                </p>
+              </div>
+
+              <div className="problem-card">
+                <h3>Growth decisions feel unclear</h3>
+                <p>
+                  Owners often know something needs to improve, but they do not have a disciplined
+                  framework for deciding what to fix first.
+                </p>
+              </div>
+
+              <div className="problem-card">
+                <h3>Expansion can be mistimed</h3>
+                <p>
+                  Another location, another hire, another financing move, another partnership —
+                  these can accelerate growth or create expensive complexity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-services" id="services">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <p className="section-kicker">Services</p>
+                <h2>Separate services. One strategic standard.</h2>
+              </div>
+              <p className="section-side-copy">
+                Each engagement is built around practical business decisions, measurable impact,
+                and a clear operating plan — not generic advice.
               </p>
             </div>
 
-            <div className="mt-10 flex items-center justify-between gap-3 md:mt-14 md:gap-4">
-              <button
-                type="button"
-                onClick={prevTestimonials}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 md:h-11 md:w-11"
-                aria-label="Previous testimonials"
-              >
-                ←
-              </button>
+            <div className="services-grid">
+              {serviceCards.map((service, index) => {
+                const icons = [
+                  <CircleDollarSign key="capital" size={20} />,
+                  <Users2 key="hiring" size={20} />,
+                  <BarChart3 key="sales" size={20} />,
+                  <Building2 key="expansion" size={20} />,
+                  <Handshake key="partnerships" size={20} />,
+                ];
 
-              <div className="hidden flex-1 gap-6 lg:grid lg:grid-cols-3">
-                {visibleTestimonials.map((testimonial, index) => {
-                  const isCenter = index === 1;
-
-                  return (
-                    <div
-                      key={`${testimonial.name}-${testimonial.company}`}
-                      className={`rounded-[28px] border px-7 py-8 transition duration-300 ${
-                        isCenter
-                          ? "border-[#d8e3ff] bg-white shadow-[0_20px_55px_rgba(49,91,255,0.10)]"
-                          : "border-slate-200 bg-white shadow-[0_14px_35px_rgba(15,23,42,0.05)]"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="text-[11px] font-medium uppercase tracking-[0.22em] text-slate-400">
-                          Contractor review
-                        </div>
-                        <span
-                          className={`rounded-full px-3 py-1 text-xs font-medium ${
-                            isCenter
-                              ? "bg-[#eef3ff] text-[#315bff]"
-                              : "bg-slate-100 text-slate-600"
-                          }`}
-                        >
-                          {testimonial.stat}
-                        </span>
-                      </div>
-
-                      <p
-                        className="mt-6 text-[28px] leading-[1.2] tracking-[-0.03em] text-slate-900"
-                        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-                      >
-                        “{testimonial.quote}”
-                      </p>
-
-                      <div className="mt-8 border-t border-slate-100 pt-5">
-                        <p className="text-base font-semibold text-slate-900">
-                          {testimonial.name}
-                        </p>
-                        <p className="mt-1 text-sm text-slate-500">
-                          {testimonial.company}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="flex-1 lg:hidden">
-                <div className="rounded-[24px] border border-[#d8e3ff] bg-white px-5 py-6 shadow-[0_20px_55px_rgba(49,91,255,0.10)] md:rounded-[28px] md:px-7 md:py-8">
-                  <div className="flex items-center justify-between">
-                    <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 md:text-[11px] md:tracking-[0.22em]">
-                      Contractor review
-                    </div>
-                    <span className="rounded-full bg-[#eef3ff] px-3 py-1 text-xs font-medium text-[#315bff]">
-                      {testimonials[testimonialIndex].stat}
-                    </span>
-                  </div>
-
-                  <p
-                    className="mt-5 text-[22px] leading-[1.28] tracking-[-0.03em] text-slate-900 md:mt-6 md:text-[28px]"
-                    style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-                  >
-                    “{testimonials[testimonialIndex].quote}”
-                  </p>
-
-                  <div className="mt-6 border-t border-slate-100 pt-4 md:mt-8 md:pt-5">
-                    <p className="text-base font-semibold text-slate-900">
-                      {testimonials[testimonialIndex].name}
-                    </p>
-                    <p className="mt-1 text-sm text-slate-500">
-                      {testimonials[testimonialIndex].company}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={nextTestimonials}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 md:h-11 md:w-11"
-                aria-label="Next testimonials"
-              >
-                →
-              </button>
-            </div>
-
-            <div className="mt-6 flex items-center justify-center gap-2 md:mt-8">
-              {testimonials.map((_, index) => {
-                const isActive = index === testimonialIndex;
                 return (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => setTestimonialIndex(index)}
-                    className={`h-2.5 rounded-full transition ${
-                      isActive
-                        ? "w-8 bg-[#315bff]"
-                        : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
+                  <article key={service.id} className="service-card">
+                    <div className="service-card-top">
+                      <div className="service-icon-wrap">{icons[index]}</div>
+                      <p className="service-eyebrow">{service.eyebrow}</p>
+                    </div>
+
+                    <h3>{service.title}</h3>
+                    <p className="service-intro">{service.intro}</p>
+
+                    <ul className="service-bullet-list">
+                      {service.bullets.map((bullet) => (
+                        <li key={bullet}>
+                          <CheckCircle2 size={15} />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a href={`#${service.id}`} className="service-link">
+                      View full service section
+                      <ChevronRight size={16} />
+                    </a>
+                  </article>
                 );
               })}
             </div>
           </div>
-        </Reveal>
-      </section>
+        </section>
 
-      <section id="contact" className="px-4 py-16 md:px-10 md:py-24">
-        <Reveal>
-          <div className="mx-auto max-w-7xl rounded-[28px] bg-gradient-to-br from-[#0f2a6b] via-[#1f4aa8] to-[#315bff] px-5 py-10 text-white shadow-[0_30px_90px_rgba(49,91,255,0.22)] md:rounded-[36px] md:px-10 md:py-16">
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-12">
-              <div className="max-w-none lg:max-w-2xl">
-                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/65 md:text-[11px] md:tracking-[0.24em]">
-                  Ready to see it in action?
+        <section className="section section-results" id="results">
+          <div className="container">
+            <div className="results-layout">
+              <div className="results-copy">
+                <p className="section-kicker">Proof</p>
+                <h2>Built on long-term relationships, not one-time hype.</h2>
+                <p>
+                  The businesses we work with stay because the work is practical, the
+                  recommendations are grounded, and the results show up where they matter:
+                  efficiency, margin, decision quality, and long-term growth.
                 </p>
-                <h2
-                  className="mt-3 text-[30px] font-medium leading-[1.05] tracking-[-0.04em] text-white md:mt-4 md:text-5xl md:leading-[1.02]"
-                  style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-                >
-                  Give your team a more
-                  <br />
-                  elegant way to offer financing
-                </h2>
-                <p className="mt-5 text-[15px] leading-7 text-white/78 md:mt-6 md:text-[17px] md:leading-8">
-                  We’ll show you how YSV fits into your sales process, what the
-                  customer journey looks like, and how financing can help you
-                  close more jobs without making the experience feel
-                  complicated.
+                <p>
+                  We are certified professionals with finance backgrounds, and we bring that lens
+                  into every engagement — whether the issue is capital, hiring, marketing,
+                  partnerships, or expansion.
                 </p>
-
-                <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
-                  {["Fast walkthrough", "No pressure", "Contractor-focused"].map(
-                    (item) => (
-                      <div
-                        key={item}
-                        className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur"
-                      >
-                        {item}
-                      </div>
-                    ),
-                  )}
-                </div>
               </div>
 
-              <div className="rounded-[24px] border border-white/15 bg-white/10 p-5 backdrop-blur md:rounded-[30px] md:p-7">
-                <div className="grid gap-4">
-                  <input
-                    type="text"
-                    placeholder="Full name"
-                    className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Company"
-                    className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
-                  />
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us a little about your business"
-                    className="rounded-xl border border-white/15 bg-white/90 px-4 py-3 text-slate-900 outline-none"
-                  />
-                  <button
-                    type="button"
-                    className="rounded-xl bg-white px-6 py-4 text-base font-semibold text-[#1f4aa8] transition hover:scale-[1.01]"
-                  >
-                    Request a Demo
-                  </button>
-                </div>
+              <div className="results-stats">
+                {proofStats.map((stat) => (
+                  <div key={stat.label} className="stat-card">
+                    <span className="stat-value">{stat.value}</span>
+                    <span className="stat-label">{stat.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </Reveal>
-      </section>
+        </section>
 
-      <footer className="relative overflow-hidden bg-gradient-to-br from-[#050b1a] via-[#0b1f4a] to-[#1e3a8a] px-4 pb-8 pt-14 text-white md:px-10 md:pt-20">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-0 top-0 h-[320px] w-[320px] bg-[#315bff]/25 blur-[120px]" />
-          <div className="absolute bottom-0 right-0 h-[320px] w-[320px] bg-cyan-400/10 blur-[120px]" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] md:gap-12 md:pb-12">
-            <Reveal>
-              <div>
-                <img
-                  src="/ysv-logo-black.png"
-                  alt="YSV Financial"
-                  className="h-12 w-auto md:h-14"
-                />
-
-                <p className="mt-4 max-w-md text-[15px] leading-7 text-white/75 md:mt-5 md:text-base">
-                  Financing solutions built to help contractors close more
-                  jobs, simplify the customer experience, and offer flexible
-                  payment options with confidence.
+        <section className="section section-guarantee">
+          <div className="container">
+            <div className="guarantee-panel">
+              <div className="guarantee-copy">
+                <p className="section-kicker">Promise</p>
+                <h2>We pay for ourselves within 6 months — or we keep working for free.</h2>
+                <p>
+                  We believe consulting should carry real accountability. Within the first six
+                  months, our cost should be offset by the value and improvements we help create.
                 </p>
-
-                <div className="mt-5 flex flex-wrap gap-3 md:mt-6">
-                  <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85 backdrop-blur transition hover:bg-white/10">
-                    Fast Approvals
-                  </div>
-                  <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85 backdrop-blur transition hover:bg-white/10">
-                    Contractor Focused
-                  </div>
-                  <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85 backdrop-blur transition hover:bg-white/10">
-                    Flexible Financing
-                  </div>
-                </div>
+                <p>
+                  If that does not happen, we continue working with you for the next six months at
+                  no cost.
+                </p>
               </div>
-            </Reveal>
 
-            <Reveal delay={80}>
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/90">
-                  Navigation
-                </h3>
-
-                <div className="mt-4 flex flex-col gap-3 text-white/70 md:mt-5">
-                  <a href="#why" className="transition hover:translate-x-1 hover:text-white">
-                    Why YSV
-                  </a>
-                  <a href="#how" className="transition hover:translate-x-1 hover:text-white">
-                    How It Works
-                  </a>
-                  <a href="#clarity" className="transition hover:translate-x-1 hover:text-white">
-                    Features
-                  </a>
-                  <a href="#testimonials" className="transition hover:translate-x-1 hover:text-white">
-                    Testimonials
-                  </a>
-                  <a href="#contact" className="transition hover:translate-x-1 hover:text-white">
-                    Contact
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={160}>
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/90">
-                  Company
-                </h3>
-
-                <div className="mt-4 flex flex-col gap-3 text-white/70 md:mt-5">
-                  <a href="#" className="transition hover:translate-x-1 hover:text-white">
-                    Privacy Policy
-                  </a>
-                  <a href="#" className="transition hover:translate-x-1 hover:text-white">
-                    Terms of Use
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={240}>
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/90">
-                  Get In Touch
-                </h3>
-
-                <div className="mt-4 space-y-4 text-white/75 md:mt-5">
-                  <p>
-                    <span className="font-medium text-white">Email:</span>{" "}
-                    hello@ysvfinancial.com
-                  </p>
-                  <p>
-                    <span className="font-medium text-white">Phone:</span>{" "}
-                    (555) 123-4567
-                  </p>
-                  <p>
-                    <span className="font-medium text-white">Hours:</span>{" "}
-                    Mon–Fri, 9am–6pm
-                  </p>
-                </div>
-
-                <a
-                  href="#contact"
-                  className="mt-5 inline-flex rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium text-white shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10 md:mt-6"
-                >
-                  Book A Demo
+              <div className="guarantee-box">
+                <ShieldCheck size={28} />
+                <h3>Built around accountability</h3>
+                <p>
+                  Not vague “support.” Not open-ended advisory. A real promise tied to real
+                  business impact.
+                </p>
+                <a href="#consultation" className="btn btn-gold">
+                  Free Consultation
                 </a>
               </div>
-            </Reveal>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-process" id="process">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <p className="section-kicker">Plan</p>
+                <h2>A cleaner way to evaluate growth.</h2>
+              </div>
+              <p className="section-side-copy">
+                We do not jump straight into advice. We start with diagnosis, prioritization, and
+                a practical plan that fits the stage of your business.
+              </p>
+            </div>
+
+            <div className="process-grid">
+              <div className="process-step">
+                <span className="process-number">01</span>
+                <h3>Review the business</h3>
+                <p>
+                  We examine the current position, operating realities, financial pressure points,
+                  and goals.
+                </p>
+              </div>
+
+              <div className="process-step">
+                <span className="process-number">02</span>
+                <h3>Identify what matters most</h3>
+                <p>
+                  We isolate the leaks, missed opportunities, and high-impact decisions that
+                  deserve attention first.
+                </p>
+              </div>
+
+              <div className="process-step">
+                <span className="process-number">03</span>
+                <h3>Build the right strategy</h3>
+                <p>
+                  Recommendations are structured around timing, cash flow, risk, and practical
+                  execution.
+                </p>
+              </div>
+
+              <div className="process-step">
+                <span className="process-number">04</span>
+                <h3>Support implementation</h3>
+                <p>
+                  We help you move from analysis into better decisions, stronger systems, and more
+                  profitable growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {services.map((service, index) => (
+          <section
+            key={service.id}
+            id={service.id}
+            className={`section service-detail-section ${
+              index % 2 === 1 ? "service-detail-alt" : ""
+            }`}
+          >
+            <div className="container service-detail-grid">
+              <div className="service-detail-sticky">
+                <p className="section-kicker">{service.eyebrow}</p>
+                <h2>{service.title}</h2>
+                <p className="service-detail-intro">{service.intro}</p>
+
+                <div className="service-detail-points">
+                  {service.bullets.map((bullet) => (
+                    <div key={bullet} className="detail-point">
+                      <CheckCircle2 size={16} />
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a href="#consultation" className="btn btn-gold">
+                  Free Consultation
+                </a>
+              </div>
+
+              <div className="service-detail-content">
+                <article className="detail-block">
+                  <p className="detail-label">Pain</p>
+                  <h3>What usually goes wrong</h3>
+                  {service.pain.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </article>
+
+                <article className="detail-block">
+                  <p className="detail-label">Solution</p>
+                  <h3>How we approach it</h3>
+                  {service.solution.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </article>
+
+                <article className="detail-block">
+                  <p className="detail-label">Proof</p>
+                  <h3>Why clients trust us here</h3>
+                  {service.proof.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </article>
+
+                <article className="detail-block detail-highlight">
+                  <p className="detail-label">Promise</p>
+                  <h3>What we commit to</h3>
+                  <p>{service.promise}</p>
+                </article>
+
+                <article className="detail-block">
+                  <p className="detail-label">Plan</p>
+                  <h3>What the process looks like</h3>
+                  <ul className="plan-list">
+                    {service.plan.map((step) => (
+                      <li key={step}>
+                        <ChevronRight size={16} />
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </section>
+        ))}
+
+        <section className="section section-about" id="about">
+          <div className="container about-grid">
+            <div className="about-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+                alt="Professional consulting team in discussion"
+              />
+            </div>
+
+            <div className="about-copy">
+              <p className="section-kicker">About</p>
+              <h2>Finance discipline, strategic thinking, and practical support.</h2>
+              <p>
+                We are a consulting firm built to support home service business owners making
+                meaningful decisions under real pressure.
+              </p>
+              <p>
+                Our work is rooted in financial thinking, operating realism, and long-term value —
+                not trendy language, empty optimism, or surface-level advice.
+              </p>
+              <p>
+                Whether the issue is capital, hiring, expansion, partnerships, or the hidden
+                inefficiencies inside your sales and marketing systems, our job is to help you see
+                the business more clearly and make stronger moves because of it.
+              </p>
+
+              <div className="about-points">
+                <div className="about-point">
+                  <ShieldCheck size={18} />
+                  <span>Certified professionals with finance backgrounds</span>
+                </div>
+                <div className="about-point">
+                  <LineChart size={18} />
+                  <span>Focused on measurable business impact</span>
+                </div>
+                <div className="about-point">
+                  <Handshake size={18} />
+                  <span>Built for long-term owner relationships</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-consultation" id="consultation">
+          <div className="container consultation-grid">
+            <div className="consultation-copy">
+              <p className="section-kicker">Free Consultation</p>
+              <h2>Start with a real conversation about what is holding the business back.</h2>
+              <p>
+                We will discuss where the business may be leaking money, where the next growth
+                opportunities may be, and which decisions deserve attention first.
+              </p>
+              <p>
+                This is not a generic sales call. It is a focused conversation designed to identify
+                where better strategy can create better outcomes.
+              </p>
+
+              <div className="consultation-points">
+                <div className="consultation-point">
+                  <PhoneCall size={18} />
+                  <span>One clear conversation</span>
+                </div>
+                <div className="consultation-point">
+                  <TrendingUp size={18} />
+                  <span>Priority opportunities identified</span>
+                </div>
+                <div className="consultation-point">
+                  <ShieldCheck size={18} />
+                  <span>Zero obligation</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="consultation-card">
+              <h3>Book your free consultation</h3>
+              <p>
+                Fill out the form and we will reach out to schedule a conversation about your
+                business.
+              </p>
+
+              <form className="consultation-form">
+                <label>
+                  Full name
+                  <input type="text" placeholder="Your name" />
+                </label>
+
+                <label>
+                  Business name
+                  <input type="text" placeholder="Company name" />
+                </label>
+
+                <label>
+                  Email
+                  <input type="email" placeholder="you@company.com" />
+                </label>
+
+                <label>
+                  Phone
+                  <input type="tel" placeholder="(000) 000-0000" />
+                </label>
+
+                <label>
+                  What do you need help with most right now?
+                  <textarea
+                    rows={5}
+                    placeholder="Capital, hiring, sales & marketing, expansion, partnerships, or overall business strategy..."
+                  />
+                </label>
+
+                <button type="submit" className="btn btn-gold btn-full">
+                  Free Consultation
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="container footer-grid">
+          <div>
+            <a href="#top" className="brand-mark footer-brand">
+              <img src="/ysv-logo-black.png" alt="YSV Consulting" />
+            </a>
+            <p className="footer-copy">
+              Strategic consulting for home service business owners focused on cleaner decisions,
+              stronger systems, and profitable growth.
+            </p>
           </div>
 
-          <Reveal delay={100}>
-            <div className="flex flex-col gap-4 pt-6 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
-              <p>© 2026 YSV Financial. All rights reserved.</p>
-            </div>
-          </Reveal>
+          <div className="footer-links">
+            <p className="footer-heading">Navigation</p>
+            <a href="#services">Services</a>
+            <a href="#results">Results</a>
+            <a href="#process">Process</a>
+            <a href="#about">About</a>
+            <a href="#consultation">Free Consultation</a>
+          </div>
+
+          <div className="footer-links">
+            <p className="footer-heading">Service Areas</p>
+            <a href="#capital">Capital Strategy</a>
+            <a href="#hiring">Hiring Strategy</a>
+            <a href="#sales-marketing">Sales & Marketing</a>
+            <a href="#expansion">Expansion Strategy</a>
+            <a href="#partnerships">Partnership Decisions</a>
+          </div>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
